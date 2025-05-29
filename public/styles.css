@@ -1,0 +1,65 @@
+html, body {
+    overflow: hidden !important;
+}
+
+.gwtk-main-app-element {
+    height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+    .gwtk-main-app-element {
+        height: calc(100vh - 48px);
+    }
+
+    .mobile-hidden {
+        display: none !important;
+        position: absolute !important;
+    }
+}
+
+.loading-screen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(360deg, #C5DCFA -34.97%, #FFFFFF 100%);
+    z-index: 1001;
+}
+
+.loading-screen-image {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    right: 0;
+    top: 25%;
+
+    width: fit-content;
+    height: fit-content;
+    max-width: calc( min(96%, 340px) );
+
+    background: #FFFFFF;
+    box-shadow: 2px 4px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.loading-screen-image img {
+    max-width: inherit;
+}
+
+.loading-screen-dots {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left:0;
+    right: 0;
+    bottom: 25%;
+
+    width: 64px;
+    height: 64px;
+}

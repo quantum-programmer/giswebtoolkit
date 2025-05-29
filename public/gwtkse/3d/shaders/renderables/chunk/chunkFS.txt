@@ -1,0 +1,124 @@
+precision mediump float;
+
+varying vec2 vTextureCoord;
+varying vec4 vTextureLightIntencity;
+// Направление света
+varying vec3 vLightingDirection;
+varying vec3 vWaveNormal;
+//глубина (точнее чем FragCoord)
+varying vec2 vDepth;
+//Текстура тайла
+uniform sampler2D og_texture0;
+
+// Цвет фигуры
+uniform vec4 uShapeColor;
+// Флаг рисования текстуры
+uniform bool uFlagTex0;
+
+//Режим отрисовки глубины
+uniform bool uDepthMode;
+
+//Карта нормалей волны
+uniform sampler2D og_texture1;
+// Количество цветов водной поверхности
+uniform int uWaterColorsCount;
+// Массив цветов водной поверхности (максимум 9)
+struct WaterColor{
+    vec3 color;
+};
+uniform WaterColor uWaterColors[9];
+// Текущее время (в мс)
+uniform float u_time;
+// Время (в с)
+#define iTime (u_time/1000.0)
+// Параметры функции расчета бликов волн
+const vec2 iParams=vec2(60.0,13.);
+// Максимальное количество цветов водной поверхности (1 по умолчанию и 8 может быть
+// задано пользователем)
+const int MAX_WATERCOLOR_COUNT=9;
+const float MAX_COLOR_DELTA=0.05;
+
+// Расчет формы волны и получение шума
+float getWaveValue(out vec3 waveResult,vec2 waterUv0,vec2 waterUv1)
+{
+    vec3 wave1 = texture2D( og_texture1, waterUv0 ).xyz;
+    vec3 wave2 = texture2D( og_texture1, waterUv1 ).xyz;
+    waveResult=normalize(wave1+wave2+vec3(-1.,-1.,0.));
+    vec4 perlinVal=texture2D( og_texture1, waveResult.xy);
+    return max(perlinVal.a*4.-1.,0.)/3.;
+}
+
+vec4 packDepth(highp float depth)
+{
+    highp vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * depth;
+    enc = fract(enc);
+    enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+    return enc;
+}
+
+void main()
+{
+     if(!uDepthMode){
+     vec3 colorTotal = uShapeColor.rgb;
+          float alfaChanel=uShapeColor.a;
+     if(uFlagTex0)
+     {
+
+        vec4 textureColor0 = texture2D(og_texture0, vTextureCoord);
+        alfaChanel=textureColor0.a;
+        bool flag=false;
+        if(uWaterColorsCount>0)
+        {
+            for(int i=0;i<MAX_WATERCOLOR_COUNT;i++)
+            {
+                    if(i>=uWaterColorsCount)
+                    {
+                        break;
+                    }
+                    vec3 waterColor=uWaterColors[i].color;
+                    if(length(textureColor0.rgb - waterColor) < MAX_COLOR_DELTA)
+                    {
+                        flag=true;
+                        break;
+                    }
+            }
+        }
+        vec3 waveResult;
+        float k;
+        if(flag)
+        {
+            vec2 uv = vTextureCoord;
+            vec2 waterUv0 = 1.5*uv - 0.025 * iTime;
+            vec2 waterUv1 = 1.*uv + 0.015 * iTime;
+            k = getWaveValue(waveResult,waterUv0,waterUv1);
+            if(k>=0.25)
+            {
+                colorTotal=mix(textureColor0.rgb,vec3(min(1.,k*1.5)),k);
+            }
+            else
+            {
+                colorTotal=mix(textureColor0.rgb,vec3(k),k);
+            }
+            float sDotN = max(dot( waveResult, vWaveNormal), 0.);
+            colorTotal=mix( textureColor0.rgb,colorTotal,sqrt(k))+iParams.x * pow(sDotN, iParams.y);
+        }
+        else// Остальные цвета
+        {
+            colorTotal=textureColor0.rgb;
+        }
+     }
+     if(alfaChanel < 0.05){
+       alfaChanel=0.;
+       //discard;
+     }
+     gl_FragColor = vec4(colorTotal* vTextureLightIntencity.xyz,alfaChanel);
+
+     }
+     else
+     {
+         highp float depth=0.5*(vDepth.x/vDepth.y)+0.5;
+         gl_FragColor=packDepth(depth);
+     }
+
+
+}

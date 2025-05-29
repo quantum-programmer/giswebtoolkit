@@ -1,0 +1,76 @@
+.gwtk-task-card .v-text-field--outlined.v-input--dense>.v-input__control>.v-input__slot {
+    min-height: var(--text-field-filled-full-width-outlined-single-line-slot-min-height);
+}
+
+.gwtk-task-card .v-text-field.v-text-field--solo.v-input--dense > .v-input__control {
+    min-height: var(--text-field-solo-dense-control-min-height);
+}
+
+.gwtk-task-card .v-text-field--enclosed.v-input--dense:not(.v-text-field--solo).v-text-field--outlined .v-input__append-inner {
+    align-self: center;
+    margin: 0;
+}
+
+.gwtk-task-card .v-text-field--enclosed.v-input--dense:not(.v-text-field--solo).v-text-field--outlined .v-input__prepend-inner{
+    align-self: center;
+    margin: 0;
+}
+.gwtk-task-card .v-text-field.v-text-field--solo.v-input--dense .v-input__prepend-outer{
+    align-self: center;
+    margin: 0;
+}
+.gwtk-task-card .v-text-field.v-input--dense .v-input__append-inner{
+    align-self: center;
+    margin: 0;
+}
+
+.gwtk-task-card .v-input__append-outer .v-input__icon--append-outer .v-icon.v-icon{
+    font-size: var(--v-text-field-icon-size);
+}
+
+.gwtk-task-card-text .v-text-field--outlined.v-input--dense .v-label {
+    top: var(--text-field-label-top)
+}
+
+.v-text-field .v-input__append-inner .v-input__icon .v-icon.v-icon {
+    font-size: var(--v-text-field-icon-size);
+}
+
+.v-text-field .v-input__prepend-inner .v-input__icon .v-icon.v-icon {
+    font-size: var(--v-text-field-icon-size);
+}
+
+.v-text-field .v-input__append-inner .v-input__icon {
+    height: var(--v-text-field-icon-size);
+}
+
+.v-text-field .v-input__append-inner svg {
+    width: var(--v-text-field-icon-size);
+    height: var(--v-text-field-icon-size);
+}
+
+.gwtk-task-card .v-text-field .v-select__slot input {
+    padding: var(--v-select-outlined-selections-padding-top);
+}
+.gwtk-task-card .v-text-field--outlined .v-text-field__slot input {
+    padding: var(--v-select-outlined-selections-padding-top);
+}
+
+.gwtk-task-card .v-input__prepend-outer .gwtk-svg-icon {
+    width: var(--v-text-field-icon-size);
+    height: var(--v-text-field-icon-size);
+}
+
+.gwtk-task-card .v-input__prepend-outer .gwtk-svg-icon {
+    width: var(--v-text-field-icon-size);
+    height: var(--v-text-field-icon-size);
+}
+.gwtk-task-card .v-select.v-input--dense .v-select__selection--comma {
+    margin: var( --select-dense-selections-margin);
+}
+.gwtk-task-card .v-text-field--single-line .v-text-field__slot input {
+    padding: var(--v-select-outlined-selections-padding-top);
+}
+.gwtk-task-card .v-select.v-text-field--outlined:not(.v-text-field--single-line).v-input--dense .v-select__selections {
+    padding: var(--v-select-outlined-dense-selections-padding-top);
+}

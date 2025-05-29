@@ -1,0 +1,4 @@
+./gwtk-app/**/*.js
+node_modules
+VuetifyComponents
+*.js

@@ -1,0 +1,29 @@
+{
+	"chrome": {
+		"default": "102",
+		"versions": {
+			"102.0": {
+				"image": "selenoid/chrome:102.0",
+				"port": "4444",
+				"path": "/",
+				"env": [
+					"TZ=Europe/Moscow",
+					"LANG=ru_RU.UTF-8",
+					"LANGUAGE=ru:en",
+					"LC_ALL=ru_RU.UTF-8"
+				]
+			},
+			"102.0_vnc": {
+				"image": "selenoid/vnc:chrome_102.0",
+				"port": "4444",
+				"path": "/",
+				"env": [
+					"TZ=Europe/Moscow",
+					"LANG=ru_RU.UTF-8",
+					"LANGUAGE=ru:en",
+					"LC_ALL=ru_RU.UTF-8"
+				]
+			}
+		}
+	}
+}

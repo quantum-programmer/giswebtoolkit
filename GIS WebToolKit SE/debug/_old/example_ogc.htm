@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>GIS WebToolKit SE - пример использования</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">    
+	
+	<!-- подключение библиотек скриптов GWTK -->
+	<script src="source/ogc/wqueries.js" type="text/javascript"></script>
+    <script src="source/ogc/wmtsqueries.js" type="text/javascript"></script>
+    <script src="source/ogc/wmsqueries.js" type="text/javascript"></script>
+    <script src="source/ogc/wfsqueries.js" type="text/javascript"></script>   
+	<script src="source/ogc/wcsqueries.js" type="text/javascript"></script>
+	<script src="source/ogc/mapmath.js" type="text/javascript"></script>	
+	<!-- подключение jquery (необходимо для работы GWTK) -->
+	<script src="source/jquery-1.7.1.min.js" type="text/javascript"></script>	
+	<script src="source/jquery-ui-1.8.20.min.js" ></script>
+	<script src="source/modernizr-2.5.3.js" ></script>
+	<!-- подключение тестовых скриптов -->	
+	<script src="tester_ogc.js" type="text/javascript"></script>
+	
+	<style type="text/css">
+	<!--
+		.Btn {	border-style:solid; border-width:3px; cursor:pointer; padding-left:5px; padding-right:5px;	}
+	-->
+	</style>	
+</head>
+<body onload="initMap();">   	
+	<h1>GIS WebToolKit SE - пример использования классов WmsQueries, WmtsQueries, WfsQueries, WcsQueries</h1>
+	
+	<div id="dvMap" style="border-style:solid; border-width:3px; border-color:#DDEAF3; height:300px; overflow: auto;"> </div>
+    
+    <h1>Класс WmsQueries</h1>
+    <strong>        
+        <span id="Span20" onclick="wmsgetcapabilities();" class="Btn">WMS.getcapabilities</span>
+        <span id="Span21" onclick="wmsmapurl();" class="Btn">WMS.mapUrl</span>
+        <span id="Span22" onclick="wmsfeatureinfo();" class="Btn">WMS.featureinfo</span>        
+    </strong>    
+    <h1>Класс WmtsQueries</h1>
+    <strong>        
+        <span id="Span1" onclick="wmtsgetcapabilities();" class="Btn">WMTS.getcapabilities</span>
+        <span id="Span2" onclick="wmtstileurl();" class="Btn">WMTS.tileurl</span>
+        <span id="Span3" onclick="wmtstileimage();" class="Btn">WMTS.tileimage</span>
+        <span id="Span4" onclick="wmtsfeatureinfo();" class="Btn">WMTS.featureinfo</span>        
+    </strong>
+    <h1>Класс WfsQueries</h1>
+    <strong>        
+        <span id="Span5" onclick="wfsgetfeaturetypenamelist();" class="Btn">WFS.getfeaturetypenamelist</span>
+        <span id="Span6" onclick="wfsfeaturetype();" class="Btn">WFS.featuretype</span>
+        <span id="Span7" onclick="wfsliststoredqueries();" class="Btn">WFS.liststoredqueries</span>
+        <span id="Span8" onclick="wfsfeature();" class="Btn">WFS.feature</span>
+        <span id="Span9" onclick="wfsfeaturebyid();" class="Btn">WFS.featurebyid</span>
+        <span id="Span10" onclick="wfsinsert();" class="Btn">WFS.insert</span>
+        <span id="Span11" onclick="wfsreplace();" class="Btn">WFS.replace</span>
+        <span id="Span12" onclick="wfsdelete();" class="Btn">WFS.delete</span>
+    </strong>	
+	<h1>Класс WcsQueries</h1>
+    <strong>        
+        <span id="Span40" onclick="wcsgetcapabilities();" class="Btn">WCS.getcapabilities</span>
+        <span id="Span41" onclick="wcsсoveragelist();" class="Btn">WCS.сoveragelist</span>
+        <span id="Span42" onclick="wcsсoverage();" class="Btn">WCS.сoverage</span>        
+    </strong>
+</body>
+</html>

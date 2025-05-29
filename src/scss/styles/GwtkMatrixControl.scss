@@ -1,0 +1,11 @@
+.gwtk-matrix-control-container-item .v-list-item__content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.gwtk-matrix-control-container-item .v-list-item {
+    min-height: calc(var(--list-item-min-height-dense) - 8px)
+}
+.gwtk-matrix-control-container-item .gwtk-list-item-right-slot-content .col{
+    padding-top: 0;
+    padding-bottom: 0
+}

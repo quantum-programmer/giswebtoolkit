@@ -1,0 +1,61 @@
+﻿precision mediump float;
+// Изменяемые между шейдерами переменные текстурных координат, освещенности, цвета вершины
+varying vec4 v_LightIntensity;
+varying vec4 v_BorderIntensity;
+varying vec2 vTextureCoord;
+//глубина (точнее чем FragCoord)
+varying vec2 vDepth;
+
+//Текстура тайла
+uniform sampler2D uSampler0;
+
+uniform bool uTextureFlag;
+uniform float uSmooth;
+
+//Режим отрисовки глубины
+uniform bool uDepthMode;
+const float SYMBOL_DRAWING_VALUE=0.62;
+const float TEXT_SHARPNESS=5.0;
+
+vec4 packDepth(highp float depth)
+{
+    highp vec4 enc = vec4(1.0, 255.0, 65025.0, 16581375.0) * depth;
+    enc = fract(enc);
+    enc -= enc.yzww * vec4(1.0 / 255.0, 1.0 / 255.0, 1.0 / 255.0, 0.0);
+    return enc;
+}
+
+void main()
+{
+    vec4 color;
+    if(!uDepthMode)
+    {
+        vec3 borderColor=v_BorderIntensity.rgb;
+        vec3 textColor=v_LightIntensity.rgb;
+        float textDrawingValue=0.;
+        float fullDrawingValue=0.;
+        float opacity=0.;
+        if(uTextureFlag)
+        {
+            float dist = texture2D(uSampler0, vTextureCoord).r;
+            fullDrawingValue=clamp((dist-(SYMBOL_DRAWING_VALUE-uSmooth))*TEXT_SHARPNESS,0.0, 1.0);
+            textDrawingValue=clamp((dist-(SYMBOL_DRAWING_VALUE))*TEXT_SHARPNESS, 0.0, 1.0);
+            if(textDrawingValue+fullDrawingValue<0.01){
+                discard;
+            }
+            if(textDrawingValue<0.65){
+                opacity=fullDrawingValue*v_BorderIntensity.a;
+            }
+            else{
+                opacity=v_LightIntensity.a;
+            }
+        }
+        color=vec4(borderColor+(textColor-borderColor)*textDrawingValue, opacity);
+    }
+    else
+    {
+        highp float depth=0.5*(vDepth.x/vDepth.y)+0.5;
+        color=packDepth(depth);
+    }
+    gl_FragColor = color;
+}

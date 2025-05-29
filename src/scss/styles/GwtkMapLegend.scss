@@ -1,0 +1,57 @@
+.gwtk-map-legend .gwtk-button svg {
+    width: var(--v-text-field-icon-size);
+    height: var(--v-text-field-icon-size);
+}
+
+.gwtk-map-legend .gwtk-search-layer .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-legend .v-list-item {
+    min-height: var(--list-item-min-height)
+}
+
+.gwtk-map-legend .v-list-item__content {
+    padding-top: var(--list-item-padding-top);
+    padding-bottom: var(--list-item-padding-bottom);
+}
+
+.gwtk-map-legend .gwtk-button .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-map-legend .v-treeview--dense .v-treeview-node__root {
+    min-height: var(--treeview-node-height-dense);
+}
+
+.gwtk-map-marker-icon-gallery .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-scrollable-container .container .v-input__slot .v-input__append-inner>div {
+    height: var(--v-text-field-append-inner-icon-size)!important;
+    width: var(--v-text-field-append-inner-icon-size)!important;
+}
+.gwtk-map-legend .gwtk-scrollable-container .v-btn-toggle .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+.gwtk-map-legend .gwtk-scrollable-container .v-btn-toggle .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-legend .gwtk-scrollable-container .row--dense > .col {
+    padding-top: var(--row-dense-padding);
+    padding-bottom: var(--row-dense-padding);
+}

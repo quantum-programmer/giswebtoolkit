@@ -1,0 +1,28 @@
+.gwtk-moving-to-point .gwtk-moving-to-point-btn {
+    height: var(--v-btn-height--default);
+    width: var(--v-btn-height--default);
+}
+
+.gwtk-moving-to-point .v-text-field.v-text-field--solo.v-input--dense>.v-input__control {
+    min-height: var(--text-field-solo-dense-control-min-height);
+}
+
+.gwtk-moving-to-point .v-btn__content .gwtk-svg-icon {
+    height: var(--v-btn-icon-size);
+    width: var(--v-btn-icon-size);
+}
+
+.gwtk-moving-to-point .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-moving-to-point .v-btn--icon.v-size--default {
+    height: var(--v-btn-height--default);
+    width: var(--v-btn-height--default);
+}
+.gwtk-moving-to-point .v-text-field--outlined.v-input--dense > .v-input__control>.v-input__slot {
+    min-height: var(--text-field-filled-full-width-outlined-single-line-slot-min-height);
+}
+.gwtk-moving-to-point .v-text-field input {
+    padding: var(  --v-select-outlined-dense-selections-padding-top);
+}

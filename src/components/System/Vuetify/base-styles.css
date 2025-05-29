@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('embedded-opentype'), /* Internet Explorer */ url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('woff2'), /* Super Modern Browsers */ url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('woff'), /* Pretty Modern Browsers */ url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype'), /* Safari, Android, iOS */ url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('svg'); /* Legacy iOS */
+}
+
+:root {
+    /* color */
+    --color-purple-01: rgba(143, 51, 241, 1);
+    --color-purple-02: rgba(143, 51, 241, 0.6);
+    --color-purple-03: rgba(231, 86, 255, 1);
+
+    /*--color-blue-05: rgba(15, 86, 179, 1); */
+
+    --color-white: rgba(255, 255, 255, 1);
+
+    /* primary */
+    --v-anchor-base: rgba(22, 114, 236, 1); /* --color-blue-04 */
+    --v-primary-base: rgba(22, 114, 236, 1); /* --color-blue-04 */
+    --v-primary-lighten1: rgba(80, 150, 241, 1); /* --color-blue-03 */
+    --v-primary-lighten2: rgba(139, 185, 246, 1); /* --color-unused2 */
+    --v-primary-lighten3: rgba(197, 220, 250, 1); /* --color-unused1 */
+    --v-primary-lighten4: rgba(219, 234, 254, 1); /* --color-blue-02 */
+    --v-primary-lighten5: rgba(241, 247, 255, 1); /* --color-blue-01 */
+
+    --v-primary-darken1: rgba(0, 94, 182, 1); /* --color-dark-blue-01 */
+    --v-primary-darken2: rgba(0, 71, 155, 1); /* --color-dark-blue-02 */
+    --v-primary-darken3: rgba(0, 49, 128, 1); /* --color-dark-blue-03 */
+    --v-primary-darken4: rgba(0, 30, 103, 1); /* --color-dark-blue-04 */
+
+    /* secondary */
+    --v-secondary-base: rgba(65, 65, 65, 1); /* --color-grey-01 */
+    --v-secondary-lighten1: rgba(97, 97, 97, 1); /* --color-grey-05 */
+    --v-secondary-lighten2: rgba(129, 129, 129, 1); /* --color-grey-04 */
+    --v-secondary-lighten3: rgba(161, 161, 161, 1); /* --color-grey-03 */
+    --v-secondary-lighten4: rgba(192, 192, 192, 1); /* --color-grey-02 */
+    --v-secondary-lighten5: rgba(224, 224, 224, 1); /* --color-grey-01 */
+
+    --v-secondary-darken1: rgba(44, 44, 44, 1); /* --color-dark-grey-01 */
+    --v-secondary-darken2: rgba(23, 23, 23, 1); /* --color-dark-grey-02 */
+    --v-secondary-darken3: rgba(0, 0, 0, 1); /* --color-dark-grey-03 */
+    --v-secondary-darken4: rgba(0, 0, 0, 1); /* --color-dark-grey-04 */
+
+    --v-error-base: #ff5252;
+
+    /* fonts */
+    --font-manrope: "Manrope", sans-serif;
+
+    /* line height */
+    --line-height-s: 20px;
+    --line-height-m: 24px;
+
+    /* border radius */
+    --border-radius-xs: 4px;
+    --border-radius-s: 8px;
+    --border-radius-m: 12px;
+    --border-radius-l: 20px;
+
+    /* spacers */
+    --space-xs: 4px;
+    --space-s: 8px;
+    --space-m: 12px;
+    --space-l: 16px;
+    --space-xl: 24px;
+
+    /* box-shadow */
+    --shadow-grey: 0px 1px 2px var(--v-secondary-base), 0px 2px 4px var(--v-secondary-base);
+
+
+    /*
+    --v-accent-base: #82b1ff;
+    --v-accent-lighten5: #ffffff;
+    --v-accent-lighten4: #f8ffff;
+    --v-accent-lighten3: #daffff;
+    --v-accent-lighten2: #bce8ff;
+    --v-accent-lighten1: #9fccff;
+    --v-accent-darken1: #6596e2;
+    --v-accent-darken2: #467dc6;
+    --v-accent-darken3: #2364aa;
+    --v-accent-darken4: #004c90;
+
+    --v-error-base: #ff5252;
+    --v-error-lighten5: #ffe4d5;
+    --v-error-lighten4: #ffc6b9;
+    --v-error-lighten3: #ffa99e;
+    --v-error-lighten2: #ff8c84;
+    --v-error-lighten1: #ff6f6a;
+    --v-error-darken1: #df323b;
+    --v-error-darken2: #bf0025;
+    --v-error-darken3: #9f0010;
+    --v-error-darken4: #800000;
+
+    --v-info-base: #2196f3;
+    --v-info-lighten5: #d4ffff;
+    --v-info-lighten4: #b5ffff;
+    --v-info-lighten3: #95e8ff;
+    --v-info-lighten2: #75ccff;
+    --v-info-lighten1: #51b0ff;
+    --v-info-darken1: #007cd6;
+    --v-info-darken2: #0064ba;
+    --v-info-darken3: #004d9f;
+    --v-info-darken4: #003784;
+
+    --v-success-base: #4caf50;
+    --v-success-lighten5: #dcffd6;
+    --v-success-lighten4: #beffba;
+    --v-success-lighten3: #a2ff9e;
+    --v-success-lighten2: #85e783;
+    --v-success-lighten1: #69cb69;
+    --v-success-darken1: #2d9437;
+    --v-success-darken2: #00791e;
+    --v-success-darken3: #006000;
+    --v-success-darken4: #004700;
+
+    --v-warning-base: #fb8c00;
+    --v-warning-lighten5: #ffff9e;
+    --v-warning-lighten4: #fffb82;
+    --v-warning-lighten3: #ffdf67;
+    --v-warning-lighten2: #ffc24b;
+    --v-warning-lighten1: #ffa72d;
+    --v-warning-darken1: #db7200;
+    --v-warning-darken2: #bb5900;
+    --v-warning-darken3: #9d4000;
+    --v-warning-darken4: #802700;*/
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-sizing: border-box;
+}
+
+.v-application,
+.v-application [class*='text-'],
+.v-application div[class*='text-'],
+.v-application span[class*='text-'] {
+    font-family: var(--font-manrope) !important;
+}
+
+.v-application .v-application--wrap {
+    min-height: auto;
+}
+
+.gwtk-image-chess-background {
+    background-image: linear-gradient(45deg, var(--v-secondary-lighten3) 25%, transparent 25%), linear-gradient(-45deg, var(--v-secondary-lighten3) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--v-secondary-lighten3) 75%), linear-gradient(-45deg, transparent 75%, var(--v-secondary-lighten3) 75%);
+    background-size: 32px 32px;
+    background-position: 0 0, 0 16px, 16px -16px, -16px 0;
+    background-repeat: repeat;
+}

@@ -1,0 +1,1 @@
+FROM selenoid/chrome:102.0

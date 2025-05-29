@@ -1,0 +1,19 @@
+.gwtk-map-options-projects .v-list-item {
+    min-height: var(--list-item-min-height-dense);
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+  }
+  
+  .gwtk-map-options-projects .v-list-item__icon {
+    margin: var(--list-item-icon-dense-margin);
+  }
+    
+  .gwtk-map-options-parameters .v-input__slot .v-input__append-inner>div {
+    height: var(--v-text-field-append-inner-icon-size)!important;
+    width: var(--v-text-field-append-inner-icon-size)!important;
+  }
+
+  .gwtk-map-options-projects .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}

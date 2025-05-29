@@ -1,0 +1,112 @@
+{
+	"type": "FeatureCollection",
+	"bbox": [
+		38.415584564202206, 55.864222564610614,
+		38.44983100890435, 55.87049547186022
+	],
+	"features": [{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [38.25744478086013,	55.80707348354588]
+			},
+			"properties": {
+				"id": "4",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P00000300304",
+				"objecttype": "P0000030030"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [38.25744478086013,	55.71443544339887]
+			},
+			"properties": {
+				"id": "4",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030021",
+				"objecttype": "P0000030021"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Polygon",
+				"coordinates": [
+					[
+						[
+							38.25744478086013,
+							55.80707348354588
+						],
+						[
+							38.25744478086013,
+							55.71443544339887
+						],
+						[
+							38.42190547872925,
+							55.71443544339887
+						],
+						[
+							38.42190547872925,
+							55.80707348354588
+						],
+						[
+							38.25744478086013,
+							55.80707348354588
+						]
+					]
+				]
+			},
+			"properties": {
+				"id": "e9062982-c140-bdc2-3a9c-8837b8fbb06f.1536124498975",
+				"schema": null,
+				"code": "Polygon",
+				"key": "Polygon",
+				"name": "Полигон",
+				"stroke-width": "2",
+				"stroke-opacity": "0.75",
+				"stroke": "#7F7FFF",
+				"stroke-dasharray": "000",
+				"fill-opacity": "0.3",
+				"fill": "#7F7FFF"
+			},
+			"style": {
+				"stroke": "#7F7FFF",
+				"stroke-width": "2",
+				"stroke-opacity": "0.75",
+				"fill": "#7F7FFF",
+				"fill-opacity": "0.3",
+				"stroke-dasharray": "5 5"
+			}
+		}
+	],
+	"typeField": "objecttype",
+	"style": {
+		"P0000030030": {
+			"name": "Завод переработки твердых отходов",
+			"marker": {
+				"width": "32px",
+				"height": "32px",
+				"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='http://192.168.1.63/files/images/evn001.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+				"centerX": "16",
+				"centerY": "16"
+			}
+		},
+		"P0000030021": {
+			"name": " Завод переработки пищевых отходов",
+			"marker": {
+				"width": "32px",
+				"height": "32px",
+				"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='http://192.168.1.63/files/images/evn002.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+				"centerX": "16",
+				"centerY": "16"
+			}
+		}
+   }
+}

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GIS WebToolKit SE - пример использования</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+
+    <!-- подключение стилей -->
+    <link href="w2ui/w2ui-1.4.2.css" rel="stylesheet"/>
+    <link href="source/gwtkse.css" rel="stylesheet"/>
+    <link href="jquery/jquery-ui.css" rel="stylesheet"/>
+
+    <!-- подключение jquery -->
+    <script src="jquery/jquery-1.12.4.min.js"></script>
+    <script src="jquery/jquery-ui-1.11.2.min.js"></script>
+    <script src="jquery/modernizr-2.5.3.js"></script>
+    <script src="jquery/jquery.maskedinput.js"></script>
+    <script src="jquery/jquery.balloon.js"></script>
+    <script src="jquery/polyfill.min.js"></script>
+    <script src="jquery/html2canvas.min.js"></script>
+    <!-- подключение w2ui -->
+    <script src="w2ui/w2ui-1.4.2.js"></script>
+
+    <!-- подключение GWTK SE -->
+    <script src="source/gwtk.js"></script>
+
+    <script src="source/dom/old/domevent.js"></script>
+    <script src="source/dom/domutil.js"></script>
+    <script src="source/geo/clusterization.js"></script>
+    <script src="source/geo/latlng.js"></script>
+    <script src="source/geo/latlngbounds.js"></script>
+    <script src="source/geo/placemark.js"></script>
+    <script src="source/core/translate.js"></script>
+    <script src="source/core/tileutil.js"></script>
+    <!--   <script src="source/core/featureinfo.js"></script>-->
+    <script src="source/core/projection.js"></script>
+    <script src="source/core/util.js"></script>
+    <script src="source/maptask/maptask.js"></script>
+    <script src="source/maptask/selectobjectaction.js"></script>
+    <script src="source/maptask/pickpointaction.js"></script>
+    <script src="source/core/mapcalc.js"></script>
+    <script src="source/core/wmath.js"></script>
+    <script src="source/core/selectedfeatures.js"></script>
+    <script src="source/core/textsearch.js"></script>
+    <script src="source/core/scalingmanager.js"></script>
+    <script src="source/core/token.js"></script>
+    <script src="source/core/mapsheetslist.js"></script>
+    <!--   <script src="source/core/mapsearch.js"></script>-->
+    <script src="source/ui/searchsem.js"></script>
+    <script src="source/ui/slidertoolscontrol.js"></script>
+    <script src="source/ui/geolocation.js"></script>
+    <script src="source/bpla/routebpla.js"></script>
+    <script src="source/bpla/maproutes.js"></script>
+    <script src="source/geometry/bounds.js"></script>
+    <script src="source/geometry/point.js"></script>
+    <script src="source/ogc/wcsqueries.js"></script>
+    <script src="source/ogc/wfsqueries.js"></script>
+    <script src="source/ogc/wmsqueries.js"></script>
+    <script src="source/ogc/wmtsqueries.js"></script>
+    <script src="source/ogc/wqueries.js"></script>
+    <script src="source/ogc/mapmath.js"></script>
+    <script src="source/ui/resizable.js"></script>
+    <script src="source/ui/geocodeaddress.js"></script>
+    <script src="source/ui/mapsearchcontrol.js"></script>
+    <script src="source/ui/selectmapframe.js"></script>
+    <script src="source/ui/mapcontentcontrol.js"></script>
+    <script src="source/ui/optionscontrol.js"></script>
+    <script src="source/ui/svgdrawing.js"></script>
+    <script src="source/ui/builderofzonecontrol.js"></script>
+    <script src="source/ui/buildheatmap.js"></script>
+    <script src="source/ui/maplinkcontrol.js"></script>
+    <script src="source/ui/featuresamplescontrol.js"></script>
+    <script src="source/ui/localmapcontrol.js"></script>
+    <script src="source/ui/map2img.js"></script>
+    <script src="source/ui/rosreestr.js"></script>
+    <script src="source/ui/transitiontopointcontrol.js"></script>
+    <script src="source/ui/shutter.js"></script>
+    <script src="source/ui/selectareamapobject.js"></script>
+    <script src="source/ui/selectareacircle.js"></script>
+    <script src="source/ui/selectarearadius.js"></script>
+    <script src="source/ui/selectareamanual.js"></script>
+    <script src="source/ui/areasearchcontrol.js"></script>
+    <script src="source/ui/spin.min.js"></script>
+    <script src="source/ui/objectlist.js"></script>
+    <script src="source/ui/scalingbyrectcontrol.js"></script>
+    <script src="source/ui/progresscontrol.js"></script>
+    <script src="source/ui/w2uisidebargwtk.js"></script>
+    <script src="source/ui/routcontrol.js"></script>
+    <script src="source/ui/matrixcontrol.js"></script>
+    <script src="source/ui/scalerulercontrol.js"></script>
+    <script src="source/ui/navigatorcontrol.js"></script>
+    <script src="source/ui/thematicmapcontrol.js"></script>
+	<script src="source/ui/userthematiccontrol.js"></script>
+    <script src="source/ui/objectpanelcontrol.js"></script>
+    <script src="source/ui/ruleranglecontrol.js"></script>
+    <script src="source/ui/polygoncontrol.js"></script>
+    <script src="source/ui/mapthematic.js"></script>
+    <script src="source/ui/popupmapcontrol.js"></script>
+    <script src="source/ui/clustercontrol.js"></script>
+    <script src="source/ui/showlayerextentcontrol.js"></script>
+    <script src="source/ui/rulertask.js"></script>
+    <script src="source/ui/mapeventslogcontrol.js"></script>
+
+    <script src="source/ui/mapcalc/mapcalctask.js"></script>
+    <script src="source/ui/mapcalc/mapcalcdirectaction.js"></script>
+    <script src="source/ui/mapcalc/mapcalcinverseaction.js"></script>
+    <script src="source/ui/mapcalc/mapcalcobjectsinfo.js"></script>
+    <script src="source/ui/mapcalc/mapcalccrosstwoobjects.js"></script>
+
+    <script src="source/ui/selectobjectscontrol.js"></script>
+    <script src="source/ui/specifydirectioncontrol.js"></script>
+    <script src="source/ui/maptaskbarcontrol.js"></script>
+    <script src="source/ui/exportlayercontrol.js"></script>
+    <script src="source/ui/mapmenucontrol.js"></script>
+    <script src="source/ui/mapdbmcontrol.js"></script>
+
+    <script src="source/md5.js"></script>
+    <script src="source/objectdrawing.js"></script>
+    <script src="source/mapobject/old/mapobject.js"></script>
+    <script src="source/mapobject/old/mapgeometry.js"></script>
+    <script src="source/mapobject/mapsemantic.js"></script>
+
+    <script src="source/mapedit/extended/mapeditor_extended.js"></script>
+    <script src="source/mapedit/extended/templateseditor.js"></script>
+    <script src="source/mapedit/extended/legendeditor_draw.js"></script>
+    <script src="source/mapedit/extended/legendeditor.js"></script>
+    <script src="source/mapedit/extended/actionsedit.js"></script>
+    <script src="source/mapedit/extended/actionscreate.js"></script>
+    <script src="source/mapedit/extended/legendsettings.js"></script>
+    <script src="source/mapedit/mapeditor.js"></script>
+    <script src="source/mapedit/editedition.js"></script>
+    <script src="source/mapedit/editactions.js"></script>
+    <script src="source/mapedit/editcreation.js"></script>
+    <script src="source/mapedit/classifier.js"></script>
+    <script src="source/mapedit/semanticeditor.js"></script>
+    <script src="source/mapedit/geometryeditor.js"></script>
+    <script src="source/mapedit/editqueries.js"></script>
+    <script src="source/mapedit/editsvg.js"></script>
+    <script src="source/mapedit/topology.js"></script>
+    <script src="source/mapedit/edithistory.js"></script>
+    <script src="source/mapedit/drawingobject.js"></script>
+
+    <script src="source/layers.js"></script>
+    <script src="source/handlers.js"></script>
+    <script src="source/maplayers/wmslayer.js"></script>
+    <script src="source/maplayers/wmsmanager.js"></script>
+    <script src="source/maplayers/layerfilter.js"></script>
+    <script src="source/maplayers/tilelayer.js"></script>
+    <script src="source/maplayers/layergraphic.js"></script>
+    <script src="source/maplayers/tilelayerwms.js"></script>
+    <script src="source/maplayers/virtuallayer.js"></script>
+    <script src="source/maplayers/virtualfolder.js"></script>
+    <script src="source/maplayers/geomarklayer.js"></script>
+    <script src="source/taskmanager.js"></script>
+    <script src="source/featureinforequest.js"></script>
+    <script src="source/featurerestrequests.js"></script>
+    <script src="source/objectmanager.js"></script>
+    <script src="source/featureinfodata.js"></script>
+    <script src="source/maptask/usercontrol.js"></script>
+    <script src="source/map.js"></script>
+    <script src="source/api/mapapi.js"></script>
+    <script src="source/api/mapapitypes.js"></script>
+
+    <!-- подключение 3d скриптов -->
+    <script src="source/3d/engine/utils/polygons/trianglemeshsubdivision.js"></script>
+    <script src="source/3d/engine/utils/polygons/linesubdivision.js"></script>
+    <script src="source/3d/engine/utils/requestservice.js"></script>
+    <script src="source/3d/engine/utils/geojson.js"></script>
+    <script src="source/3d/engine/utils/utils.js"></script>
+    <script src="source/3d/engine/utils/matrix.js"></script>
+    <script src="source/3d/engine/utils/linkedlist.js"></script>
+    <script src="source/3d/engine/utils/doublelinkedlist.js"></script>
+    <script src="source/3d/engine/utils/color.js"></script>
+    <script src="source/3d/engine/utils/mediator.js"></script>
+
+    <script src="source/3d/engine/core/enumcore.js"></script>
+    <script src="source/3d/engine/core/geodetic3d.js"></script>
+    <script src="source/3d/engine/core/combopoint3d.js"></script>
+    <script src="source/3d/engine/core/geodeticextent.js"></script>
+    <script src="source/3d/engine/core/interval.js"></script>
+    <script src="source/3d/engine/core/trigonometry.js"></script>
+    <script src="source/3d/engine/core/unitconverter.js"></script>
+    <script src="source/3d/engine/core/boundingvolumes/bbox2d.js"></script>
+    <script src="source/3d/engine/core/boundingvolumes/bbox3d.js"></script>
+    <script src="source/3d/engine/core/boundingvolumes/orientedbbox3d.js"></script>
+    <script src="source/3d/engine/core/boundingvolumes/sphericalbbox3d.js"></script>
+    <script src="source/3d/engine/core/collisiondetection/collisiondetection.js"></script>
+    <script src="source/3d/engine/core/geometry/edge.js"></script>
+    <script src="source/3d/engine/core/geometry/ellipsoid.js"></script>
+    <script src="source/3d/engine/core/geometry/ellipsoidtangentplane.js"></script>
+    <script src="source/3d/engine/core/geometry/planegeometry.js"></script>
+    <script src="source/3d/engine/core/geometry/indices.js"></script>
+    <script src="source/3d/engine/core/geometry/mesh.js"></script>
+    <script src="source/3d/engine/core/geometry/vertexattribute.js"></script>
+    <script src="source/3d/engine/core/geometry/projection.js"></script>
+    <script src="source/3d/engine/core/geometry/polygonalgorithms.js"></script>
+    <script src="source/3d/engine/core/geometry/earclipping.js"></script>
+
+    <script src="source/3d/main.js"></script>
+
+    <script src="source/3d/engine/renderer/enumrenderer.js"></script>
+    <script src="source/3d/engine/renderer/input/keyboard.js"></script>
+    <script src="source/3d/engine/renderer/input/mousedevice.js"></script>
+    <script src="source/3d/engine/renderer/input/touchscreen.js"></script>
+    <script src="source/3d/engine/renderer/mesh/meshbuffers.js"></script>
+    <script src="source/3d/engine/renderer/renderbuffer/renderBufferdescription.js"></script>
+    <script src="source/3d/engine/renderer/depthframebuffer/depthframebuffer.js"></script>
+    <script src="source/3d/engine/renderer/renderstate/blending.js"></script>
+    <script src="source/3d/engine/renderer/renderstate/colormask.js"></script>
+    <script src="source/3d/engine/renderer/renderstate/depthtest.js"></script>
+    <script src="source/3d/engine/renderer/renderstate/facetculling.js"></script>
+    <script src="source/3d/engine/renderer/renderstate/renderstate.js"></script>
+    <script src="source/3d/engine/renderer/renderstate/scissortest.js"></script>
+    <script src="source/3d/engine/renderer/renderstate/stenciltest.js"></script>
+    <script src="source/3d/engine/renderer/scene/camera.js"></script>
+    <script src="source/3d/engine/renderer/scene/scenestate.js"></script>
+    <script src="source/3d/engine/renderer/materials/materialdescription.js"></script>
+    <script src="source/3d/engine/renderer/textures/texture2ddescription.js"></script>
+    <script src="source/3d/engine/renderer/textures/textureSamplers.js"></script>
+    <script src="source/3d/engine/renderer/webgl/buffers/bufferWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/framebuffer/colorattachments.js"></script>
+    <script src="source/3d/engine/renderer/webgl/framebuffer/framebuffer.js"></script>
+    <script src="source/3d/engine/renderer/webgl/renderbuffer/renderBufferWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/shaders/shaderprogram.js"></script>
+    <script src="source/3d/engine/renderer/webgl/shaders/shadervertexattribute.js"></script>
+    <script src="source/3d/engine/renderer/webgl/shaders/uniformWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/textures/texture2dWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/textures/textureUnitsWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/textures/textureUnitWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/vertexarray/vertexbufferattributeWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/vertexarray/vertexcollectionWebgl.js"></script>
+    <script src="source/3d/engine/renderer/webgl/typeconverter.js"></script>
+    <script src="source/3d/engine/renderer/clearstate.js"></script>
+    <script src="source/3d/engine/renderer/context.js"></script>
+    <script src="source/3d/engine/renderer/drawstate.js"></script>
+    <script src="source/3d/engine/renderer/graphicdevice.js"></script>
+
+    <script src="source/3d/engine/resources/resoursemap.js"></script>
+    <script src="source/3d/engine/resources/textfileloader.js"></script>
+    <script src="source/3d/engine/resources/shadermap.js"></script>
+    <script src="source/3d/engine/resources/texturemap.js"></script>
+    <script src="source/3d/engine/resources/materialmap.js"></script>
+
+
+    <script src="source/3d/engine/worker/worker.js"></script>
+    <script src="source/3d/engine/worker/workermanager.js"></script>
+    <script src="source/3d/engine/worker/messagequeue.js"></script>
+    <script src="source/3d/engine/worker/requestqueue.js"></script>
+
+    <script src="source/3d/engine/scene/map3ddata.js"></script>
+    <script src="source/3d/engine/scene/background/background.js"></script>
+    <script src="source/3d/engine/scene/background/sun.js"></script>
+    <script src="source/3d/engine/scene/background/starrysky.js"></script>
+
+    <script src="source/3d/engine/scene/plugins/drawing3d.js"></script>
+    <script src="source/3d/engine/scene/plugins/freemove.js"></script>
+    <script src="source/3d/engine/scene/plugins/freeflight.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/common/pointui.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/common/renderableanimators.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/common/viewcomponents.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/common/modelcomponents.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/common/controlcomponents.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/linearmeasurement.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/measurementsbyrelief.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/areameasurements.js"></script>
+    <script src="source/3d/engine/scene/plugins/measurements/surfaceareameasurements.js"></script>
+    <script src="source/3d/engine/scene/plugins/lightsourcecontrol.js"></script>
+    <script src="source/3d/engine/scene/plugins/viewmodecontrol.js"></script>
+
+
+    <script src="source/3d/engine/scene/terrain/db3dsource/tile3dlayer.js"></script>
+    <script src="source/3d/engine/scene/terrain/db3dsource/tile3dnode.js"></script>
+    <script src="source/3d/engine/scene/terrain/db3dsource/tile3dsource.js"></script>
+    <script src="source/3d/engine/scene/terrain/db3dsource/tile3dmodel.js"></script>
+    <script src="source/3d/engine/scene/terrain/db3dsource/tile3didentifier.js"></script>
+    <script src="source/3d/engine/scene/terrain/tilelayer/chunktextureUnit.js"></script>
+    <script src="source/3d/engine/scene/terrain/tilelayer/chunktexturesource.js"></script>
+    <script src="source/3d/engine/scene/terrain/tilelayer/chunknode.js"></script>
+    <script src="source/3d/engine/scene/terrain/tilelayer/chunklayer.js"></script>
+    <script src="source/3d/engine/scene/terrain/tileidentifier.js"></script>
+    <script src="source/3d/engine/scene/terrain/sourceurl.js"></script>
+    <script src="source/3d/engine/scene/terrain/tilelayer/rastersource.js"></script>
+    <script src="source/3d/engine/scene/terrain/tilelayer/rastersourcegiswebservicewms.js"></script>
+    <script src="source/3d/engine/scene/renderables/renderablecollection.js"></script>
+    <script src="source/3d/engine/scene/terrain/pointsource/pointsource.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/vectordatasource.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/classifiermodel.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/vectordatalayer.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/vectordatanode.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/servicenode.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/serviceobjectsource.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/scenariodatalayer.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/scenarioobject.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/scenarioUI.js"></script>
+    <script src="source/3d/engine/scene/terrain/vectordata/untiledobjectsource.js"></script>
+    <script src="source/3d/engine/core/lines/line2d.js"></script>
+
+    <script src="source/3d/engine/scene/terrain/heightsource/heighttile.js"></script>
+    <script src="source/3d/engine/scene/terrain/heightsource/heightcache.js"></script>
+    <script src="source/3d/engine/scene/terrain/heightsource/heightsource.js"></script>
+    <script src="source/3d/engine/scene/terrain/heightsource/heightsourcemanager.js"></script>
+
+    <script src="source/3d/engine/scene/UI/animation.js"></script>
+    <script src="source/3d/engine/scene/UI/buttons.js"></script>
+    <script src="source/3d/engine/scene/UI/layers.js"></script>
+    <script src="source/3d/engine/scene/UI/map3dtoolbar.js"></script>
+
+    <script src="source/3d/engine/scene/cameras/cameralookatpoint.js"></script>
+
+    <script src="source/3d/engine/scene/renderables/objectrenderables/abstractrenderable.js"></script>
+    <script src="source/3d/engine/scene/renderables/chunk.js"></script>
+    <script src="source/3d/engine/scene/renderables/tiles3drenderables/texturedchunk.js"></script>
+    <script src="source/3d/engine/scene/renderables/tiles3drenderables/materialchunk.js"></script>
+    <script src="source/3d/engine/scene/renderables/tiles3drenderables/pointcloud.js"></script>
+    <script src="source/3d/engine/scene/renderables/objectrenderables/polygon.js"></script>
+    <script src="source/3d/engine/scene/renderables/objectrenderables/polyline.js"></script>
+    <script src="source/3d/engine/scene/renderables/objectrenderables/simplepolygon.js"></script>
+    <script src="source/3d/engine/scene/renderables/objectrenderables/instancedobject.js"></script>
+    <script src="source/3d/engine/scene/renderables/objectrenderables/textobject.js"></script>
+    <script src="source/3d/engine/scene/renderables/objectrenderables/shadowvolumepolygon.js"></script>
+    <script src="source/3d/engine/scene/renderables/objectrenderables/animatedobject.js"></script>
+
+    <script src="source/3d/engine/scene/renderables/plane.js"></script>
+    <script src="source/3d/engine/scene/renderables/texturedsquare.js"></script>
+
+    <script src="source/3d/engine/scene/resources/defaultresources.js"></script>
+    <!-- подключение тестовых скриптов -->
+    <script src="tester_map.js"></script>
+
+    <!-- подключение тестовых скриптов для темтирования API функций -->
+    <!--<script src="testerAPI_map.js"></script>-->
+
+    <style type="text/css">
+		html, body, .dvMap
+		{
+			height: 100%;
+		}
+		/*.control-panel
+		{
+			z-index: 1000;
+			border: 1px solid grey;
+			font-weight: initial;
+			padding: 10px;
+			margin: 0px;
+			border-radius: 3px;
+			-webkit-user-select: none;
+			background-color:#ffffff;
+		}*/
+        .ico_google {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkIyNUY1NDU1MUYwMTExRTVCOUVDOUU5QjkwRUM4M0Q0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkIyNUY1NDU2MUYwMTExRTVCOUVDOUU5QjkwRUM4M0Q0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjI1RjU0NTMxRjAxMTFFNUI5RUM5RTlCOTBFQzgzRDQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjI1RjU0NTQxRjAxMTFFNUI5RUM5RTlCOTBFQzgzRDQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4JT0e+AAADNUlEQVR42oSTW2gcVRjHf3NmdmY32ewma5O9pLnUbqpStbalUCRIrK1iC33x8qA+iE8qxCpobQTpQ4kURMXXPir0RV8iiApt8IZSQYuxrcRa04hpEmy6u9mdncvOxW930VcHvjnDmXN+5/v+3/9ocRzzf09106sGn5zF/nyOsFYjUSjS89gzpj51eF1rA9ZqdhzEIR2UvJSmdb9lVIaO9uEZmh+fRU9aMqcT+S7tcweOzdzS5pd/3njnlw9yzaBFUlm4UUggP/0ooimAO6oBpz9dxHA9frNdrtsOOzO9FPUYvVC6ZVyuLLFUX+XBwl7uzI5h6RbvX5mjDWwYipGKQ48XYCuNSzWbpYaDKeDhwSzu2ioqkBNvTw9zoLiH86sXGUz2o5SOLmFKurZhUNHA0hR3Z3s7MdHXQxxKydn2Wll0rbHOX82bPL39Ic4JpN5y2gKgSy2/Zk0Whix0P2RHpodDhRzFZILAdUgeOIwK485S/qivk08OsDtXJiVltDXYDOCJUZfJx0McKyISYFv02PdwS6Okjj6JagQuR0fu5y6pf/rCGTKJlIC2sOFHPFts8t54ha27QozJNIHMEUf4cuTa/imGSkO3qYSW4Kv1K7TbeGTrPj5avsBC7W9eHPF4e6JCQtk43g7qD7yEV8ijnCY3x8pE99zX8YihawYLlT9ZuTSHLrB1z+NlSftUuSYC2UTGPhFyGgZNWrv34K0sUb93L33pdAegIrGMwqAl2VVaLY6POcxOVFG6ze+1/WxYJ+jLDFPI9WLu3EVtS554dBxDNOoA2tYLRBg30mRzg5PlquRl8/2NSZ7/coZ3v+3HEcUzKZOh8gSeQHTT/M/mqhVruNKJN7bVmNkum/Um3yxP8eYPr9NopTm36HN6XtGwW2RKebY99wJ90v8oCLoatF1/crzGq+Oh9NNl/vohTv30Cm6QJKX5ogGcX9QIA8XxgzH5fA7TMllZudEFPDVUp9RfkVwsvlh6lNmLx/DDhDjP71wYJZGWjL++qgjEByceCRkQJ6rRkS4gnyptWi0r9dm1g/7sj9MEooWlXIi6N/Pf6JHL891VeEsgrz0ckba0jhD/CDAAlNBdiCvk80kAAAAASUVORK5CYII=) no-repeat center !important;
+        }
+        .ico_google_sat {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjZFNzg5OUYxMUYxOTExRTVCNUI1OTAyMkYyQ0I4RjczIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjZFNzg5OUYyMUYxOTExRTVCNUI1OTAyMkYyQ0I4RjczIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NkU3ODk5RUYxRjE5MTFFNUI1QjU5MDIyRjJDQjhGNzMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NkU3ODk5RjAxRjE5MTFFNUI1QjU5MDIyRjJDQjhGNzMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4U2DquAAADF0lEQVR42oSS32tbdRjGP+d7kpwmy69mSZofS+MgzSrVdjiGIg6HqBdTJswhUwZeiLC74Z1eeOPfoP/CQFHwx3CCIIgFFVeHw10oa7uSNE2pS5M2ac7v43uS4a2H8x4O53ue532e5321IAj4v6t/YPXdr28w+u4rvMGAaKlM4vWrMf38hV0tJLiz3g6cwMEP/5aHrhQTWk2hjCjVm59y9PkN9BlDvun4tknYd/b6Bz3th60/Hr597WrO9X10AXhyEh56Uq4GWdPn+8IJIqbF3yOTB6MxS+ljlPUAvVTpRe7tb3JoHVFJ5ckk0tJd597OJiGhozSSlktCaiTvfw5GbA7HxDSNaiGD2d1Bub5HOpagmivR6e+RMOIiU5NbQ0k5YmdflBii7onMsUktpBIEnkeQyaKUeDoQT0NzxEJpnvbDLo6QhpfyAwYxxd2igW57NNMJXirlKM9Ecc0xMy9cQHnTtDgYH5GKJzmemiUi3QSLLYGezHhUzw4YGz6+G+YjZVuYlXniF99ADV2TenaOWfH/4193MCJR4pEZTGFoJj0+LFuc22phnjFwQ8bAx5aG3WfOU6wUj6uoFmXncF+mF1DLFljf69CzTB5Pe3x0wuKK7vJJP8lnwwWs0hxKlP5Tb+A/eXpiM6JrEXrmkLudTQlOMZZwlgT8cc3mOeWyGs2zHTtHe2DwezbH09syteUzpJLJKUHYWfKeeHZF3nLGZa3mSIIu7/YL5Ouv0KitwN59flq7TSWdI5h/TID+NGgxNZEf5r6ccQRsQ9Th8u4c365f4tbtFbZ3N1icnyVfKPDN2EWPxf5bc+UE2mTrVrI2v4Vg8XypXebn9mUZ5yLbvQ5frMa4vzGgsdIgaC6x8WBLJuJOCTTp/lTW4deqgDWX19pVfulckU1sEKFDRDR29hVfhiS78OzZBq1WC8dxphm8VTykVLKESufVdo217puiKI8u4GCyIeJIh24/xs1VV4jHnK4XaZ5qTgnm4pWDd95fjN9qvWj3196j7usYEmCI1h7VhEkW6Ej62CcDnn/ZJ24wCeJfAQYA8ctephiq5lAAAAAASUVORK5CYII=) no-repeat center !important;
+        }
+        .ico_yandex {
+            background: url(data:image/png;base64,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) no-repeat center !important;
+        }
+        .ico_yandex_sat {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkEwNzQ1QUY2MUYwQTExRTU4ODI5QUEyQ0VDRDY2MjU1IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkEwNzQ1QUY3MUYwQTExRTU4ODI5QUEyQ0VDRDY2MjU1Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QTA3NDVBRjQxRjBBMTFFNTg4MjlBQTJDRUNENjYyNTUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QTA3NDVBRjUxRjBBMTFFNTg4MjlBQTJDRUNENjYyNTUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4nYYfLAAABm0lEQVR42mL8//8/AwwwMjKCaduMOfq/WTmq/zMymQK53Iz//50F0jNOTI7ZCFML08eIboBF7pJUoMapQC4rAxoAGjQTaEgGTgMs85ZqAzWDbGNnwAGAhsQCDVkC08eELAnUXI6k+SJQsTnD3z9qQHodkpp6ZD1MaKabILEzgTadOjk17jbrr++xQP53qJSyf3izAFYDgIAPif0Bxjg8M/U70OafMLO/cfKJYTUAqOgcErfVNWEiJ0gDMGDrgDTYVsZ/f//uXpB/G5cXFiIZFviZV/iNed6yt0B2A0xc++mVqyBprAYA/bwWSC1DMoQLSAnC+By/v/27x6AVjjMQQcBzUhQowIqB+BOSyxhCzqxj+PNRpGX/+vgbqK7GkhJBAOhmpv+mGY0v+aRrzsqAI+e68qkVBiuuL/yFnJBYcCUYoAH/TLV82RkZmUCq/zD//RsL04zXCyiS/xjkGCAh1nRiie9ZrGrwGfCPiVEO6NJjKqdWtuFSw4LPAGCg8DL++OQDdPpfnGpAgQHDyCBCM57ZPHarHyF9AAEGAJbCvHjkBiy7AAAAAElFTkSuQmCC) no-repeat center !important;
+        }
+        .ico_osm {
+            background: url(data:image/png;base64,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) no-repeat center !important;
+        }
+        .ico_panorama {
+            background: url(data:image/png;base64,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) no-repeat center !important;
+        }
+        .ico_esri
+        {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkI5MzlGQ0ZEMTUxRjExRTc4MDk4QkQyRkNEOEExNzQxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkI5MzlGQ0ZFMTUxRjExRTc4MDk4QkQyRkNEOEExNzQxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjkzOUZDRkIxNTFGMTFFNzgwOThCRDJGQ0Q4QTE3NDEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjkzOUZDRkMxNTFGMTFFNzgwOThCRDJGQ0Q4QTE3NDEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6ah8CBAAADY0lEQVR42mSTW0ybBRiGn/8vbSmHjdFiyyilQCdnOZ+msCGLEBy4TTDOzBuNWaLGLeiVi8vwxgsvTIxTYky2uWVhGsvcAohsmRMZwli2inNjgCtHObS0tED5Ke0vLnFx802+uzdP3ovvEWRZ5r8Ztk/L43Y7tusDSNIqeUWFxJnMxBmNbIlQCjwW4V+Aa8kvj43e5+rlNrZmZuFYGWRtfpX41Bw8sxpcEwP4g0pefuUAplit8D+A1XpBVoT66HaM0iHrueuMItjbSUrqFTSbaqlLTMLsjKHjxxbeff9DivOzhIeAjs7LMoEovpqfxtp1CnxFMOUlPQX+aGtBW1e0AbnHptUydkZpWRofofHIEbIzLIL4D+XUl59ztMeH9UQnostDbbKWM82NpL0+THp9AopAKM8ckDDva+PX4AwVr23n0NsHHyxX5BSUyJLXR8vNj6k5/CeWAj35VPBGXRrDC91oUyPo/eIC2szkjboeSbWOzfk7caJIdHjyMUV2ds6xO/a/UJTNYzDfJxisINrzBAkqgXS5gLt969wa+o2h1i0sUonkVDE+GMWh2uf5/lsrIT7/CuF1c9i+zkHQ7GDi53imlu2szHkof7YKn8lJyQc6ut6bJXfHSTYb4dLZHGY8IQQkD6JGoUAUjkL3FLeu6MmuOo5uv4MR9QAtUwsMrtuIiXWQ3mBh6KIapUaFOdPDhPIGKnUYIRpNGAaXF5Q6UrbdQGcOIK19x0/9r7J4+x4EqzGujrAWusLcDyp6tBlMOLMoTw3DnKBBDFWrMahXyGsKZ/LSVVzeUtackXiHZ6D/NPj9TIZ/RH6DgK5aQ3zhIsmZAVpPn6P6hXrEXTV7cY31UhhzmOVAPV1NIsPdaop2b6wqfxOMlo3LYGE5n7gn3UzN+Wis3Mn+vcUkJSUjWhJihWidgW0OG2V5uXDdSUhKA9EmBUQkws1OsLfT127B1hNPqbsG3y/X2PPSRidSJTz4RMeiTz7Z/AmExbGUmMbxb5pxiMWolbeRZrUgazFXlpAb/Iw0dy56fSjvvHVQeMSFebdPPnfmBDNzI6xHSrR+epGnmhIoKn2RkfZp8rdup7/jPE/vqmLPvvqHZgqP6zx4Z1Tu67nG5PQYa0sSekMMbrcbo8nEc7vriDdEP6L03wIMALnKXfh64x8fAAAAAElFTkSuQmCC) no-repeat center !important;
+        }
+        .ico_mapproject
+        {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA5ElEQVR42mNkoBAwwhj5BQX/idEwccIERnwGiAIVvMGlGaQGwwCgIIwNNgCIX+OyEZcByE4nywX/gHQZEHdjcwGyS5As+wbE3EAxuAtKYQYQcgFUbQtQHQeyF0qRXMCHJxLuwtTCvILuBVJBNMiA30BGJRB3AHE60OS5hHQB9SgBqVtA7Acy4AeQUQPEFUBsBjTgHhEGxEG9IQ4y4CuQ8wXkN6DAImLcDdTzEqYeZMBnIIcTyGEhUrMekDoHUw8y4COQXgINXWLAbiC+ADQgG2bAdyDNAsXEgAdAzYowDiORmnACAAgrcVM79YvVAAAAAElFTkSuQmCC) no-repeat center !important;
+        }
+        .ico_openproject
+        {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB/ElEQVR42o2TT0gbQRTG58/GxEuhFBSkEJTm5qHHXntSEPFYUgSNFwk0m3VpoddSWgrVzezGJMdKDvbWi1IovfUg3ttTKcYeSg+Vghah7u7M9Jt0I4muwQePnR3e+817b76hBGbb9l18joMg6JA+ozANI0OMlsvliWw2+4PS/xsIP2CMnmB5Co+SuBz8xPNqM65rE88LBgEjACDzAdLvMMZeKE2ec0a3k5gpOIPvAEBTKzCA8OzsRqvV+lOtVh+j9tcm0Reis+o4JIeyOGf6WgCzWXUc0/cKAG+S/253DDOp1WrXBjzB/J4h5x5An82eAWD/lxBirDfcYYBlpZSHmWSw3oPPmHhTCea1ixtbAENdCZBSFrDcAGAWB48kFUs4T67rg+/7s0MBSJ7QSr1jnN9KFYHW+5cAENUSZWzLADbr9W8V234I0EuE51MA6wOA0dEclUofSxk5m/WG34urVCoFbvGvGNsX/E7DIRXyKRDifiogCsNSs9nc6j/Mddd0GEZ5blnfFSHv60LM9Uv5UMq4mMlkPnYBUVRqNhoDgO5c4jjPOW9gePPnOnDdRySOWRF9Qrr6qSb0FaopoZq3Fzr+m6rE3sJx7EVKWRvNQS36FFf3M3lck+iXm0AI6GqAMdxA0bLY4tHR77l2u236Nq/wJnwcfhsV7F4E/AP5NCYMKzj9BAAAAABJRU5ErkJggg==) no-repeat center !important;
+        }
+    </style>
+</head>
+<body onload="initMap();" style="padding:0px; margin:0px; border:0px">
+
+<!--     <div style="width:120px;height:100px"></div>-->
+<div style="width:100%; height:100%;display:inline-block">
+    <div id="dvMap" style="height:100%;">
+        <!--         <iframe src="http://192.168.1.26/files/document.htm" width=500 height=200>-->
+    </div>
+<!--    <table width="100%" height="100%">-->
+<!--        <tr>-->
+<!--            <td width="20%">-->
+<!--                <div id="edittestid" style="height:100%;">-->
+<!--                </div>-->
+<!--            </td>-->
+<!--            <td width="80%">-->
+<!--                <div id="dvMap" style="height:100%;">-->
+<!--                    &lt;!&ndash;         <iframe src="http://192.168.1.26/files/document.htm" width=500 height=200>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+    </div>
+</body>
+</html>

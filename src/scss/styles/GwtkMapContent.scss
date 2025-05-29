@@ -1,0 +1,83 @@
+//под проекты
+.gwtk-draggable-task-card .v-treeview-node__root {
+    min-height: var(--treeview-node-height);
+}
+
+.gwtk-map-content-tree .v-treeview-node__root {
+    min-height: var(--treeview-node-height);
+}
+
+.gwtk-map-content-tree .v-treeview-node__content .v-btn--icon.v-size--default {
+    height: var(--treeview-node-content-btn-height);
+    width: var(--treeview-node-content-btn-height);
+}
+
+.gwtk-map-content-widget .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+
+.gwtk-map-content-group .v-btn--icon.v-size--default {
+    height: var(--list-item-icon-btn-height);
+    width: var(--list-item-icon-btn-height);
+}
+
+.gwtk-map-content-widget .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}
+
+.gwtk-content-publish .v-sheet .container .row+.row  {
+    margin-top: var(--container-separator-margin-top);
+}
+
+.gwtk-map-content-order .gwtk-list-item-right-slot-content .col{
+    padding-top: var(--list-item-padding-top);
+    padding-bottom: var(--list-item-padding-bottom);
+}
+
+.gwtk-map-content-tags .v-chip.v-size--default {
+    height: var(--v-chip-height);
+}
+
+.gwtk-map-content-toolbar .gwtk-button .v-btn__content>i {
+    font-size: var(--gwtk-btn-height-icon-small) !important;
+}
+
+.gwtk-map-content-toolbar .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+.gwtk-main-view .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-content-publish .gwtk-operator-button svg {
+    width: var(--v-text-field-icon-size);
+    height: var(--v-text-field-icon-size);
+}
+
+.gwtk-content-publish .gwtk-scrollable-container .v-btn-toggle .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+.gwtk-content-publish .gwtk-scrollable-container .v-btn-toggle .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-content-input-select .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+.gwtk-map-content-input-select .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}

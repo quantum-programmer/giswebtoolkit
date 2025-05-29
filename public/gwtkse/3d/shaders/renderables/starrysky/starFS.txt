@@ -1,0 +1,21 @@
+precision mediump float;
+uniform sampler2D uSampler0;
+varying vec2 vTextureCoord;
+varying vec4 vColor;
+// Цвет фигуры
+uniform bool uFlagTex0;
+uniform bool uSun;
+void main(void) {
+    vec3 colorTotal = vColor.rgb;
+    float alfaChanel=1.;
+    if (uFlagTex0) {
+        vec4 textureColor = texture2D(uSampler0, vTextureCoord);
+        alfaChanel = textureColor.a;
+        if (uSun) {
+            colorTotal.r = colorTotal.r*textureColor.r;
+            colorTotal.g = colorTotal.g*textureColor.g;
+            colorTotal.b = colorTotal.b*textureColor.b;
+        }
+    }
+    gl_FragColor = vec4(colorTotal, alfaChanel);
+}

@@ -1,0 +1,160 @@
+import 'jest';
+import moxios from 'moxios';
+import Vue from 'vue';
+import { shallowMount } from '@vue/test-utils';
+import i18n from '@/plugins/i18n';
+import vuetify from '@/plugins/vuetify';
+import GDownloadLayers from '@/components/GwtkDownloadLayers/GwtkDownloadLayersWidget.vue';
+import GwtkSidebarItem from '@/components/System/AppContainers/GwtkSidebarItem/GwtkSidebarItem.vue';
+import { BrowserService } from '~/services/BrowserService';
+import { MapExportFormat } from '~/services/RequestServices/RestService/RestService';
+
+Vue.component( 'GwtkSidebarItem', GwtkSidebarItem );
+
+describe( 'GwtkDownloadLayersWidget.vue', () => {
+
+    global.URL.createObjectURL = jest.fn( () => 'details' );
+    global.URL.revokeObjectURL = jest.fn( () => 'details' );
+    // global.location.assign = jest.fn( () => 'details' );
+
+
+    let wrapper: any;
+
+    let propsData: any;
+
+    let mockformatsUpdate: jest.MockedFunction<any>;
+    let mockOnItemSelect: jest.MockedFunction<any>;
+
+    let active = true;
+
+    beforeEach( () => {
+
+        propsData = {
+            layers: [{ id: '001', export: ['json'], alias: 'aliasText', url: 'http://localhost/service.php?Layers=001' },
+                { export: [], id: '002' },
+            ],
+            parentBounds: { left: 0, top: 0, right: 100, bottom: 100 },
+            getActiveState() {
+                return active;
+            },
+            setActiveState( value: boolean ) {
+                active = value;
+            },
+
+        };
+
+        const constructorGDownloadLayers = GDownloadLayers.prototype.constructor as any;
+        mockformatsUpdate = jest.spyOn( constructorGDownloadLayers.options.methods, 'formatsUpdate' );
+        mockOnItemSelect = jest.spyOn( constructorGDownloadLayers.options.methods, 'onItemSelect' );
+
+        wrapper = shallowMount( GDownloadLayers, {
+            propsData,
+            i18n,
+            vuetify
+        } );
+
+        moxios.install();
+    } );
+
+    afterEach( () => {
+        moxios.uninstall();
+    } );
+
+    it( 'props.layers', () => {
+        expect( wrapper.vm.layers ).toStrictEqual( propsData.layers );
+    } );
+    it( 'props.parentBounds', () => {
+        expect( wrapper.vm.parentBounds ).toStrictEqual( propsData.parentBounds );
+    } );
+
+    it( 'accessors.layersForDownload', () => {
+        expect( wrapper.vm.layersForDownload.length ).toBe( 1 );
+    } );
+
+    it( 'accessors.active', function () {
+        mockOnItemSelect.mockRestore();
+        let initFlag = true;
+        wrapper.vm.active = initFlag;
+        expect( mockOnItemSelect ).toHaveBeenCalled();
+        expect( active ).toBe( initFlag );
+
+        mockOnItemSelect.mockRestore();
+        initFlag = false;
+        wrapper.vm.active = initFlag;
+        expect( mockOnItemSelect ).not.toHaveBeenCalled();
+        expect( active ).toBe( initFlag );
+    } );
+
+    it( 'accessors.loadingState', function () {
+        wrapper.vm.loadingStreams.length = 0;
+        expect( wrapper.vm.loadingState ).toBe( false );
+
+        wrapper.vm.loadingStreams.push( [] );
+        expect( wrapper.vm.loadingState ).toBe( true );
+    } );
+
+    it( 'methods.onItemSelect', () => {
+        const layer = {
+            export: ['json'],
+            id: '003'
+        };
+        const event = {
+            value: false, item: layer
+        };
+
+        wrapper.vm.onItemSelect( event );
+        expect( wrapper.vm.selectedLayer ).toStrictEqual( undefined );
+        expect( mockformatsUpdate ).toHaveBeenCalled();
+
+        mockformatsUpdate.mockRestore();
+
+        event.value = true;
+        wrapper.vm.onItemSelect( event );
+        expect( wrapper.vm.selectedLayer ).toStrictEqual( layer );
+        expect( mockformatsUpdate ).toHaveBeenCalled();
+    } );
+
+    it( 'methods.formatsUpdate', () => {
+        wrapper.vm.formatsUpdate( { export: ['sxf', 'json'] } );
+        expect( wrapper.vm.formats.filter( ( item: MapExportFormat ) => item.enabled ).length ).toBe( 2 );
+
+        wrapper.vm.formatsUpdate( undefined );
+        expect( wrapper.vm.formats.filter( ( item: MapExportFormat ) => item.enabled ).length ).toBe( 0 );
+
+    } );
+
+    it( 'methods.updateTableSize', () => {
+        wrapper.vm.updateTableSize( { height: 112 } );
+        expect( wrapper.vm.tableHeight ).toBe( 100 );
+    } );
+
+    it( 'methods.downloadSelectedLayer', async ( done ) => {
+        // a.href error
+        const downloadContent = BrowserService.downloadContent;
+        BrowserService.downloadContent = jest.fn( () => 'data' );
+
+        const event = {
+            value: true, item: propsData.layers[ 0 ]
+        };
+        wrapper.vm.onItemSelect( event );
+
+        moxios.wait( () => {
+            moxios.requests.mostRecent().respondWith( { response: new Blob( [''], { type: 'application/json' } ) } );
+        } );
+        await wrapper.vm.downloadSelectedLayer( 'json' );
+        expect( BrowserService.downloadContent ).toHaveBeenCalledTimes( 1 );
+
+        moxios.wait( () => {
+            moxios.requests.mostRecent().respondWith( {} );
+        } );
+        await wrapper.vm.downloadSelectedLayer( 'json' );
+        expect( BrowserService.downloadContent ).toHaveBeenCalledTimes( 1 );
+
+        //restore method
+        BrowserService.downloadContent = downloadContent;
+
+        done();
+
+    } );
+
+} );

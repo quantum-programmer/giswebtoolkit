@@ -1,0 +1,181 @@
+{
+  "type": "FeatureCollection",
+
+  "features": [
+    {
+      "type": "Feature",
+
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            38.06724397519608,
+            55.801960212817626
+          ],
+          [
+            38.06724397519608,
+            55.73093023634216
+          ],
+          [
+            38.27908321310426,
+            55.73093023634216
+          ],
+          [
+            38.27908321310426,
+            55.801960212817626
+          ],
+          [
+            38.06724397519608,
+            55.801960212817626
+          ]
+        ]
+      },
+      "properties": {
+        "id": "b017d75d-c6b9-23dd-b51d-be96bf60aaa3",
+        "schema": null,
+        "code": "LineString",
+        "key": "line",
+        "name": "line",
+        "semantics": []
+      },
+      "style": {
+        "stroke": "#FF55FF",
+        "stroke-width": "3.00",
+        "stroke-dasharray": "",
+        "stroke-opacity": 1,
+        "stroke-dashoffset": 0,
+        "stroke-linecap": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.224151572479265,
+          55.75218944507889
+        ]
+      },
+      "properties": {
+        "id": "6372cde9-8c5d-8ede-8510-5e1c6400272d",
+        "schema": null,
+        "code": "Point",
+        "key": "Point",
+        "name": "Точка",
+        "semantics": []
+      },
+      "style": {
+        "stroke": "#0424F3",
+        "stroke-width": 1,
+        "stroke-dasharray": "",
+        "stroke-opacity": 1,
+        "stroke-dashoffset": 0,
+        "stroke-linecap": "",
+        "fill": "#CC0814",
+        "fill-opacity": 1,
+        "marker": "M 2 16 a 7 7 0 0 0 28 0M 2 16 a 7 7 0 0 1 28 0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "title",
+        "coordinates": [
+          [
+            38.21919322013177,
+            55.74039974636062
+          ],
+          [
+            38.261765241616146,
+            55.7382737043141
+          ]
+        ]
+      },
+      "properties": {
+        "id": "a55a3ea3-42f1-f95f-99c3-58b06f6497fe",
+        "schema": null,
+        "code": "title",
+        "key": "Title",
+        "name": "Подпись",
+        "semantics": [
+          {
+            "value": "Текст",
+            "textvalue": "Текст"
+          },
+          {
+            "name": "Текст",
+            "value": "Текст",
+            "textvalue": "Текст"
+          }
+        ],
+        "title": "Текст",
+        "text": "Текст"
+      },
+      "style": {
+        "stroke": "#CC0814",
+        "stroke-width": 1,
+        "stroke-opacity": 1,
+        "font-family": "Verdana",
+        "font-style": "normal",
+        "font-weight": "bold",
+        "font-size": "30",
+        "font-stretch": "expanded",
+        "text-decoration": "none",
+        "letter-spacing": 0,
+        "text-shadow": "",
+        "writing-mode": "",
+        "fill": "#3D85C6",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              38.25744478086013,
+              55.80707348354588
+            ],
+            [
+              38.25744478086013,
+              55.71443544339887
+            ],
+            [
+              38.42190547872925,
+              55.71443544339887
+            ],
+            [
+              38.42190547872925,
+              55.80707348354588
+            ],
+            [
+              38.25744478086013,
+              55.80707348354588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "65e9c0b4-057c-fdb5-03b4-6bf6086d1b15",
+        "schema": null,
+        "code": "Polygon",
+        "key": "Polygon",
+        "name": "Полигон",
+        "semantics": [],
+        "mapid": {}
+      },
+      "style": {
+        "stroke": "#FF55FF",
+        "stroke-width": 1,
+        "stroke-dasharray": "",
+        "stroke-opacity": 1,
+        "stroke-dashoffset": 0,
+        "stroke-linecap": "",
+        "fill": "#45818E",
+        "fill-opacity": "0.50"
+      }
+    }
+  ]
+}

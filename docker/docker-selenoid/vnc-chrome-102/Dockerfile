@@ -1,0 +1,1 @@
+FROM selenoid/vnc:chrome_102.0

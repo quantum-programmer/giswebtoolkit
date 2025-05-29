@@ -1,0 +1,213 @@
+{
+	"P0000030022": {
+		"name": "Характеристика хранилища ХОО",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030022.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		},
+        "titles": {
+           "SUBST_TYPE": {
+                "dx" : "-7.5",
+                "dy" : "2",
+                "style": "TITLE_ARIAL_BLACK_8"
+                },
+           "MAX_NUMB": {
+                "dx" : "-7.5",
+                "dy" : "7",
+                "style": "TITLE_ARIAL_BLACK_8"
+                },        
+           "MAX_CONTENT": {
+                "dx" : "0",
+                "dy" : "7",
+                "style": "TITLE_ARIAL_BLACK_8"
+                }
+         }    
+	},
+	"P0000030030": {
+		"name": "ХХО,производящ.опасные хим.вещ.",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030030.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+	"P0000030080": {
+		"name": "Скопление ж/д трансп.с хим.вещ.",
+		"marker": {
+			"width": "32x",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030080.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+	"P0000030100": {
+		"name": "Нефтеперекачивающая станция",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030100.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+	"P0000030120": {
+		"name": "Газокомпрессорная станция",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030120.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+	"P0000030150": {
+		"name": "Нефтебаза респ.(обл.)подчинения",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030150.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+   "P0000030161": {
+		"name": "Нефтехранилище",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030161.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+   "P0000030162": {
+		"name": "Газохранилище",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030162.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+   "P0000030171": {
+		"name": "Месторожд.нефти-разрабатываемое",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030171.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+   "P0000030172": {
+		"name": "Месторожд.газа-разрабатываемое",
+		"marker": {
+			"width": "32px",
+			"height": "32px",
+			"image": "<svg width='50px' height='50px' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink= 'http://www.w3.org/1999/xlink'><image xlink:href='tester_data/images/P0000030172.svg' x='0' y='0' height='50px' width='50px'/></svg>",
+			"centerX": "16",
+			"centerY": "16"
+		}
+	},
+     "STYLE001": {
+        	"stroke": "red",
+			"stroke-width": "2",
+			"stroke-opacity": "0.75",
+			"fill": "red",
+			"fill-opacity": "0.3",
+            "stroke-dasharray": "none"
+    },
+    "STYLE002": {
+        	"stroke": "green",
+			"stroke-width": "2",
+			"stroke-opacity": "0.75",
+			"fill": "green",
+			"fill-opacity": "0.3",
+			"stroke-dasharray": "5, 5, 1, 5"
+    },
+    "STYLE003": {
+        	"stroke": "white",
+			"stroke-width": "2",
+			"stroke-opacity": "0.75",
+			"fill": "white",
+			"fill-opacity": "0.3",
+			"stroke-dasharray": "5%"
+    },
+    "TITLES_ENV005_1": {
+            "font-family": "Tahoma",
+            "font-size": "12px",
+            "fill": "red",
+            "font-style": "italic"
+    },
+    "TITLES_ENV005_2":{
+            "font-size": "12px",
+            "fill": "green",
+            "font-style": "italic"
+    },      
+    "TITLES_ENV005_3": {
+            "font-family": "Tahoma",
+            "font-size": "12px",
+            "fill": "yellow",
+            "font-style": "italic"
+    },
+    "TITLES_ENV005_4":{
+            "font-size": "12px",
+            "fill": "fuchsia",
+            "font-style": "italic"
+    },
+     "TITLE_ARIAL_BLACK_8":{
+            "font-family": "Arial",
+            "font-size": "8px",
+            "fill": "black"
+    },
+     "TITLE_ARIAL_BLACK_CURSIV_8":{
+            "font-family": "Arial",
+            "font-size": "8px",
+            "fill": "black",
+            "font-style": "italic"
+    },
+     "TITLE_ARIAL_BLACK_CURSIV_UNDERLINE_8":{
+            "font-family": "Arial",
+            "font-size": "8px",
+            "fill": "black",
+            "font-style": "italic",
+            "style":"text-decoration: underline;"
+    },
+     "TITLE_ARIAL_BLACK_UNDERLINE_8":{
+            "font-family": "Arial",
+            "font-size": "8px",
+            "fill": "black",
+            "style":"text-decoration: underline;"
+    },
+     "TITLE_ARIAL_BLACK_6":{
+            "font-family": "Arial",
+            "font-size": "6px",
+            "fill": "black"
+    },
+     "TITLE_ARIAL_BLACK_CURSIV_6":{
+            "font-family": "Arial",
+            "font-size": "6px",
+            "fill": "black",
+            "font-style": "italic"
+    },
+     "TITLE_ARIAL_BLACK_CURSIV_UNDERLINE_6":{
+            "font-family": "Arial",
+            "font-size": "6px",
+            "fill": "black",
+            "font-style": "italic",
+            "style":"text-decoration: underline;"
+    },
+     "TITLE_ARIAL_BLACK_10":{
+            "font-family": "Arial",
+            "font-size": "10px",
+            "fill": "black"
+    }
+    
+}

@@ -1,0 +1,65 @@
+.gwtk-mapdb .v-input__prepend-inner .v-btn--icon.v-size--default {
+    height: var(--list-item-icon-btn-height);
+    width: var(--list-item-icon-btn-height);
+}
+
+.gwtk-mapdb .v-input__append-inner .v-btn--icon.v-size--default {
+    height: var(--list-item-icon-btn-height);
+    width: var(--list-item-icon-btn-height);
+}
+
+.gwtk-mapdb-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+
+.gwtk-test-mapdb-selectObjectType-list {
+    min-height: var(--list-item-min-height-dense)
+}
+
+.gwtk-mapdb .element-container .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+.gwtk-mapdb .element-container .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-mapdb .main-container .container {
+    padding: var(--container-padding);
+}
+
+.gwtk-mapdb .main-container .container .row+.row {
+    margin-top: var(--container-separator-margin-top);
+}
+
+.gwtk-mapdb .v-data-table>.v-data-table__wrapper>table>tbody>tr>td[align="center"] {
+    padding: var(--v-data-table-td-padding);
+}
+
+.gwtk-test-mapdb-selectObjectType-list .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+.gwtk-mapdb .gwtk-mapdb-row .v-select__slot input {
+    padding: var(--v-select-outlined-dense-selections-padding-top)!important;
+}
+.gwtk-mapdb .gwtk-mapdb-row .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+.gwtk-mapdb .gwtk-mapdb-row .v-btn svg {
+    width: var(--v-btn-icon-size) ;
+    height: var(--v-btn-icon-size);
+}
+.gwtk-mapdb .gwtk-mapdb-row button i {
+    font-size: var(--v-btn-icon-size) !important;
+}

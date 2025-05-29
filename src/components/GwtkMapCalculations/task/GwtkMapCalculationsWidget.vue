@@ -1,0 +1,284 @@
+<template>
+    <gwtk-task-container-item
+        :task-id="taskId"
+        :map-vue="mapVue"
+        :description="description"
+    >
+        <div
+            v-for="(button, index) in regimes"
+            :key="button.id"
+            :class="(index + 1) === regimes.length? 'mx-2 mb-4' : 'mx-2'"
+        >
+            <gwtk-button
+                clean
+                :disabled="!button.enabled"
+                :title="$t(button.options.title)"
+                :icon="button.options.icon"
+                align-content="left"
+                width-available
+                :selected="button.active"
+                class="my-2"
+                @click="toggleRegime(button.id)"
+            />
+            <v-sheet v-if="button.active" outlined rounded class="pa-2">
+                <v-container>
+                    <v-row class="text-subtitle-2">
+                        <span>{{ firstPointTitle }}</span>
+                    </v-row>
+                    <v-row v-if="!isDegMinSec">
+                        <v-col cols="6">
+                            <gwtk-selectable
+                                border
+                            >
+                                <v-text-field
+                                    v-model="firstPointLatitudeValue"
+                                    :rules="latitudeRule"
+                                    number
+                                    :suffix="pointsSuffix"
+                                    :prefix="pointYPrefix"
+                                    :maxlength="maxLength"
+                                    autocomplete="off"
+                                    dont-fill-mask-blanks
+                                    solo
+                                    flat
+                                    hide-details
+                                    hide-spin-buttons
+                                    dense
+                                    @keypress.native="onlyNumeric($event)"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                        <v-spacer />
+                        <v-col cols="6">
+                            <gwtk-selectable
+                                border
+                            >
+                                <v-text-field
+                                    v-model="firstPointLongitudeValue"
+                                    :rules="longitudeRule"
+                                    number
+                                    :suffix="pointsSuffix"
+                                    :prefix="pointXPrefix"
+                                    :maxlength="maxLength"
+                                    autocomplete="off"
+                                    dont-fill-mask-blanks
+                                    solo
+                                    flat
+                                    hide-details
+                                    hide-spin-buttons
+                                    dense
+                                    @keypress.native="onlyNumeric($event)"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                    </v-row>
+                    <v-row v-else>
+                        <v-col
+                            cols="6"
+                            class="px-1"
+                        >
+                            <gwtk-selectable
+                                border
+                            >
+                                <gwtk-degrees-minutes-seconds
+                                    :id="firstPointLatitudeId"
+                                    :coordinate-value="firstPointLatitudeValue"
+                                    :active="true"
+                                    input-class="text-input-centered"
+                                    :read-only="false"
+                                    :decimal-degrees="true"
+                                    coordinate-type="lat"
+                                    @input="inputDegreesValue"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                        <v-col
+                            cols="6"
+                            class="px-1"
+                        >
+                            <gwtk-selectable
+                                border
+                            >
+                                <gwtk-degrees-minutes-seconds
+                                    :id="firstPointLongitudeId"
+                                    :coordinate-value="firstPointLongitudeValue"
+                                    coordinate-type="lng"
+                                    :active="true"
+                                    :solo="false"
+                                    input-class="text-input-centered"
+                                    :read-only="false"
+                                    :decimal-degrees="true"
+                                    @input="inputDegreesValue"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                    </v-row>
+                    <v-row class="text-subtitle-2">
+                        <span>{{ secondPointTitle }}</span>
+                    </v-row>
+                    <v-row v-if="!isDegMinSec">
+                        <v-col cols="6">
+                            <gwtk-selectable
+                                :border="textBlueInverse"
+                            >
+                                <v-text-field
+                                    v-model="secondPointLatitudeValue"
+                                    class="border"
+                                    :suffix="pointsSuffix"
+                                    :prefix="pointYPrefix"
+                                    :maxlength="maxLength"
+                                    autocomplete="off"
+                                    dont-fill-mask-blanks
+                                    solo
+                                    number
+                                    :readonly="secondPointReadOnly"
+                                    dense
+                                    flat
+                                    hide-details
+                                    hide-spin-buttons
+                                    @keypress.native="onlyNumeric($event)"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                        <v-spacer />
+                        <v-col cols="6">
+                            <gwtk-selectable
+                                :border="textBlueInverse"
+                            >
+                                <v-text-field
+                                    v-model="secondPointLongitudeValue"
+                                    class="border"
+                                    :suffix="pointsSuffix"
+                                    :prefix="pointXPrefix"
+                                    :maxlength="maxLength"
+                                    autocomplete="off"
+                                    dont-fill-mask-blanks
+                                    solo
+                                    number
+                                    :readonly="secondPointReadOnly"
+                                    dense
+                                    flat
+                                    hide-details
+                                    hide-spin-buttons
+                                    @keypress.native="onlyNumeric($event)"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                    </v-row>
+                    <v-row v-else>
+                        <v-col
+                            cols="6"
+                            class="px-1"
+                        >
+                            <gwtk-selectable
+                                :border="textBlueInverse"
+                            >
+                                <gwtk-degrees-minutes-seconds
+                                    :id="secondPointLatitudeId"
+                                    :coordinate-value="secondPointLatitudeValue"
+                                    :active="true"
+                                    input-class="text-input-centered"
+                                    :read-only="secondPointReadOnly"
+                                    :decimal-degrees="true"
+                                    coordinate-type="lat"
+                                    @input="inputDegreesValue"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                        <v-col
+                            cols="6"
+                            class="px-1"
+                        >
+                            <gwtk-selectable
+                                :border="textBlueInverse"
+                            >
+                                <gwtk-degrees-minutes-seconds
+                                    :id="secondPointLongitudeId"
+                                    :coordinate-value="secondPointLongitudeValue"
+                                    coordinate-type="lng"
+                                    :active="true"
+                                    :solo="false"
+                                    input-class="text-input-centered"
+                                    :read-only="secondPointReadOnly"
+                                    :decimal-degrees="true"
+                                    @input="inputDegreesValue"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="6" class="text-subtitle-2 d-flex align-center">
+                            <span>{{ distanceTitle }}</span>
+                        </v-col>
+                        <v-col cols="6">
+                            <gwtk-selectable
+                                :border="textBlueDirect"
+                            >
+                                <v-text-field
+                                    v-model="distanceValue"
+                                    :rules="distanceRule"
+                                    class="px-2"
+                                    :readonly="azimuthReadOnly"
+                                    dense
+                                    type="number"
+                                    autocomplete="off"
+                                    :suffix="distanceUnitsTitle"
+                                    hide-details
+                                    hide-spin-buttons
+                                    dont-fill-mask-blanks
+                                    solo
+                                    flat
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="6" class="text-subtitle-2 d-flex align-center">
+                            <span>{{ azimuthTitle }}</span>
+                        </v-col>
+                        <v-col v-if="!isDegMinSecAngle" cols="6">
+                            <gwtk-selectable
+                                :border="textBlueDirect"
+                            >
+                                <v-text-field
+                                    v-model="azimuthValue"
+                                    :rules="azimuthRule"
+                                    class="px-2"
+                                    :readonly="azimuthReadOnly"
+                                    :suffix="angleSuffix"
+                                    type="number"
+                                    maxlength="11"
+                                    dense
+                                    autocomplete="off"
+                                    dont-fill-mask-blanks
+                                    hide-details
+                                    solo
+                                    hide-spin-buttons
+                                    flat
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                        <v-col v-else cols="6">
+                            <gwtk-selectable
+                                :border="textBlueDirect"
+                            >
+                                <gwtk-degrees-minutes-seconds
+                                    :id="azimuthId"
+                                    :coordinate-value="azimuthValue"
+                                    :active="true"
+                                    :solo="false"
+                                    input-class="text-input-centered"
+                                    :read-only="azimuthReadOnly"
+                                    :decimal-degrees="true"
+                                    @input="inputDegreesValue"
+                                />
+                            </gwtk-selectable>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-sheet>
+        </div>
+    </gwtk-task-container-item>
+</template>
+
+<script src="./GwtkMapCalculationsWidget.ts" />

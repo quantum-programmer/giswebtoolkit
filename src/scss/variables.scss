@@ -1,0 +1,73 @@
+:root {
+  --main-font-size: 16px;
+  --treeview-node-height: 48px; //sass vuetify
+  --treeview-node-height-dense: 40px; //sass vuetify
+  --treeview-node-content-btn-height: 36px; //sass vuetify
+  --list-item-min-height: 48px; //sass vuetify
+  --list-item-min-height-dense: 40px; //sass vuetify
+  --list-item-action-margin: 12px 0; //sass vuetify
+  --list-item-icon-margin: 16px 0; //sass vuetify
+  --list-item-icon-dense-margin: 8px 0; //sass vuetify
+  --list-item-icon-btn-height: 36px;
+  --list-item-padding-top: 12px;
+  --list-item-dense-padding-top: 8px;
+  --list-item-padding-bottom: 12px;
+  --list-item-dense-padding-bottom: 8px;
+  --expansion-panel-header-height: 48px;
+  --text-field-filled-full-width-outlined-single-line-slot-min-height: 40px; //sass vuetify
+  --text-field-solo-dense-control-min-height: 38px; //sass vuetify
+  --v-text-field-icon-size: 1.5rem;
+  --text-field-label-top: 10px; //sass vuetify
+  --px-2: 8px;
+  --py-2: 8px;
+  --v-btn-height--default: 40px;  //sass vuetify $btn-sizes 36px
+  --v-btn-height--small: 28px;  //sass vuetify $btn-sizes
+  --gwtk-btn-height-icon-small: 24px;
+  --v-text-field-append-inner-icon-size: 22px;
+  --v-btn-icon-size: 24px;
+  --v-chip-height: 32px;
+  --card-subtitle-padding: 16px;
+  --editor-icon-width: 48px;
+  --v-progress-circular-size: 20px;
+  --container-padding: 12px;
+  --container-separator-margin-top: 12px;
+  --v-data-table-td-padding: 0 12px;
+  --scale-line-top: 28px;
+  --scale-line-margin: 8px;
+  --gwtk-user-thematic-image-type-height: 3em;
+  --btn-toggle-btn-height: 48px; //sass vuetify
+  --v-select-outlined-selections-padding-top: 8px 0;  //sass vuetify
+  --v-select-outlined-dense-selections-padding-top: 4px 0;  //sass vuetify
+  --checkbox-dense-margin-top: 4px; //sass vuetify
+  --row-dense-padding: 4px;
+  --gwtk-task-card-title-height: 48px;
+  --gwtk-page-toolbar-height: 48px;
+  --select-dense-selections-margin: 5px 4px 3px 0;//sass vuetify
+  --preview-image-size: 90px
+}
+
+$font-size-root: var(--main-font-size);
+
+@import 'styles/GwtkMapContent.scss';
+@import 'styles/GwtkMapdb.scss';
+@import 'styles/GwtkMapEditor.scss';
+@import 'styles/GwtkMapLegend.scss';
+@import 'styles/GwtkMapMarks.scss';
+@import 'styles/GwtkMapObject.scss';
+@import 'styles/GwtkMapOptions.scss';
+@import 'styles/GwtkMapRoute.scss';
+@import 'styles/GwtkMatrixControl.scss';
+@import 'styles/GwtkExportReport.scss';
+@import 'styles/GwtkMenuContent.scss';
+@import 'styles/GwtkMovingToPoint.scss';
+@import 'styles/GwtkReliefLineDiagram.scss';
+@import 'styles/GwtkMyMaps.scss';
+@import 'styles/GwtkSearch.scss';
+@import 'styles/GwtkSearchByName.scss';
+@import 'styles/GwtkSearchBySemantics.scss';
+@import 'styles/VTextField.scss';
+
+.gwtk-main-app-element .v-input {
+  font-size: 1rem;
+}
+

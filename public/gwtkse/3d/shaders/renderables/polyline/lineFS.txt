@@ -1,0 +1,29 @@
+precision mediump float;
+varying vec4 v_LightIntensity;
+varying vec4 vPosition;
+varying float vLengthSoFar;
+
+//Текстура глубины
+uniform sampler2D uDepthSampler;
+
+uniform float uObjectDistance;
+
+
+void main(void) {
+
+    vec2 textureCoord=vPosition.xy/(2.*vPosition.w)+vec2(0.5);
+    highp float delta=abs(0.03/vPosition.w);
+
+    vec4 depthTextureColor=texture2D(uDepthSampler, textureCoord.xy);
+    highp float textureDepth = dot(depthTextureColor, vec4(1., 1. / 255., 1. / 65025., 1. / 16581375.));
+    highp float depth=0.5*(vPosition.z/vPosition.w)+0.5;
+
+     float numDashes=33./uObjectDistance;
+
+    if(depth-textureDepth>delta&&fract(vLengthSoFar * numDashes)<0.5)
+    {
+        discard;
+    }
+
+     gl_FragColor = v_LightIntensity;
+}

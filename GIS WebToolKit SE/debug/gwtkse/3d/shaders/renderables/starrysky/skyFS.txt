@@ -1,0 +1,10 @@
+﻿precision mediump float;
+//Текстура тайла
+uniform sampler2D uSampler0;
+// Изменяемые между шейдерами переменные текстурных координат, освещенности, цвета вершины
+varying vec2 vTextureCoord;
+
+void main(void)
+{
+    gl_FragColor = texture2D(uSampler0, vTextureCoord);
+}

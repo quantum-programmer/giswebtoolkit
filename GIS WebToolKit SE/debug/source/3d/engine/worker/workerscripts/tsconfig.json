@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "esnext",
+		"lib": [
+			"webworker",
+			"scripthost",
+			"esnext"
+		],
+		"strict": true,
+		"importHelpers": true,
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"sourceMap": true,
+		//		"inlineSourceMap": true,
+		"allowJs": true,
+		"noImplicitAny": true,
+		"resolveJsonModule": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": [
+				"../../../../*"
+			]
+		}
+	}
+}

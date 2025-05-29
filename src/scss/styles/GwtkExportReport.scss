@@ -1,0 +1,26 @@
+.gwtk-export-report-select-logotype-item.v-list-item {
+    padding: 0;
+    min-height: var(--list-item-min-height);
+}
+
+.gwtk-export-report-select-logotype-item .gwtk-list-item-left-slot-content {
+    padding: 0 0 0 4px;
+}
+
+.gwtk-export-report-select-logotype-item .gwtk-list-item-content {
+    padding: 0;
+}
+
+.gwtk-export-report-select-layer-item.v-list-item {
+    padding: 0;
+    min-height: var(--list-item-min-height-dense);
+}
+
+.gwtk-export-report-select-layer-item .gwtk-list-item-left-slot-content {
+    padding: 0 0 0 4px;
+}
+
+.gwtk-export-report-select-layer-item .gwtk-list-item-content {
+    padding: 0;
+    overflow: visible;
+}

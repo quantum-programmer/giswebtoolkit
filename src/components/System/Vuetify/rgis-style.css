@@ -1,0 +1,11 @@
+:root{
+    /* color */
+    --color-blue-dark: rgba(15, 86, 179, 1);
+    --color-blue-light-01: rgba(68, 108, 227, 1);
+    --color-blue-light-02: rgba(67, 176, 241, 1);
+    --color-blue-light-03: rgba(197, 220, 250, 1);
+    --color-orange: rgba(250, 149, 76, 1);
+    --color-violet-dark-01: rgba(53, 71, 174, 1);
+    --color-violet-dark-02: rgba(134, 103, 247, 1);
+    --color-violet-light: rgba(109, 146, 255, 1);
+}

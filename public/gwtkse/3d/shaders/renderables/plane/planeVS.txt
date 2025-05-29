@@ -1,0 +1,11 @@
+attribute vec3 aVertexPosition;
+uniform mat4 uMVMatrix;
+
+
+
+
+void main()
+{
+    vec4 clipPosition = uMVMatrix*vec4(aVertexPosition,1.);
+    gl_Position = applyLogarithmicDepth(clipPosition, u_logarithmicDepth, uFcoef);
+}

@@ -1,0 +1,334 @@
+.v-input input {
+    border: none !important;
+}
+
+.map-panel {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCAQMAAACwzYK+AAAABlBMVEXy7+n08et0fG9hAAAAJklEQVR42mP4jwYOMGCKjGQ4Gj6j4TMaPqPhMxo+o+EzGj4jMnwAPkcgnaUSKgYAAAAASUVORK5CYII=);
+    background-repeat: repeat;
+    cursor: default;
+    border: none !important;
+}
+
+.tile-panel {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    outline: none;
+    border: none !important;
+}
+
+.wms-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none !important;
+    z-index: 3;
+}
+
+.wms-image, .wms-canvas, .map-canvas {
+    position: absolute;
+    border: none !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.event-panel {
+    position: absolute;
+    z-index: 704;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    background-color: white;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    font-weight: bold;
+}
+
+.overlay-panel {
+    position: absolute;
+    z-index: 706;
+    width: 1px;
+    height: 1px;
+    left: 0;
+    top: 0;
+    overflow: visible;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    border: 1px transparent solid; /* не удалять пока ( почему? кто автор? ) */
+}
+
+.underlay-panel {
+    position: absolute;
+    z-index: 703;
+    width: 1px;
+    height: 1px;
+    left: 0;
+    top: 0;
+    overflow: visible;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.draw-panel {
+    cursor: default;
+    position: absolute;
+    z-index: 703;
+    width: 1px;
+    height: 1px;
+    left: 0;
+    top: 0;
+}
+
+.svgdrawing-panel {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    background-color: unset;
+    opacity: 1;
+    filter: alpha(opacity=0);
+    font-weight: bold;
+}
+
+
+/* clusterization.js (Kozhanov) - begin*/
+
+.marker {
+    left: 0;
+    top: 0;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.marker-topmost {
+    z-index: 11;
+}
+
+.animated-obj {
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-timing-function: linear;
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: linear;
+}
+
+.pulse-button {
+    width: 38px;
+    height: 38px;
+    background-color: #333;
+    border-radius: 100%;
+    -webkit-animation: pulseScaleOut 1s infinite ease-in-out;
+    animation: pulseScaleOut 1s infinite ease-in-out;
+}
+
+@-webkit-keyframes pulseScaleOut {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes pulseScaleOut {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.marker-cluster-small {
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 12;
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: rgba(181, 226, 140, 0.6);
+}
+
+.marker-cluster-small div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 15px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: rgba(110, 204, 57, 0.6);
+}
+
+.marker-cluster-small div span {
+    line-height: 30px;
+}
+
+.marker-cluster-medium {
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 12;
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: rgba(241, 211, 87, 0.6);
+}
+
+.marker-cluster-medium div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 15px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: rgba(240, 194, 12, 0.6);
+}
+
+.marker-cluster-medium div span {
+    line-height: 30px;
+}
+
+.marker-cluster-large {
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 12;
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: rgba(253, 156, 115, 0.6);
+}
+
+.marker-cluster-large div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 15px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: rgba(241, 128, 23, 0.6);
+}
+
+
+.marker-cluster-large div span {
+    line-height: 30px;
+}
+
+.marker-cluster-verylarge {
+    left: 0;
+    top: 0;
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 12;
+    background-clip: padding-box;
+    border-radius: 22px;
+    background-color: rgba(255, 179, 189, 0.6);
+}
+
+.marker-cluster-verylarge div {
+    width: 36px;
+    height: 36px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 18px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 51, 12, 0.6);
+}
+
+.marker-cluster-verylarge div span {
+    line-height: 36px;
+}
+
+.marker-cluster-huge {
+    left: 0;
+    top: 0;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 12;
+    background-clip: padding-box;
+    border-radius: 24px;
+    background-color: rgba(255, 91, 209, 0.61);
+}
+
+.marker-cluster-huge div {
+    width: 42px;
+    height: 42px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 22px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 9, 157, 0.6);
+}
+
+.marker-cluster-huge div span {
+    line-height: 42px;
+}
+
+
+.marker-cluster {
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 12;
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: rgba(241, 211, 87, 0.6);
+}
+
+.marker-cluster div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 15px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: rgba(240, 194, 12, 0.6);
+}
+
+.marker-cluster div span {
+    line-height: 30px;
+}
+
+.control-button-clusterizator {
+    display: inline-block;
+    position: relative;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAA0UlEQVR42mNkoDNgHLWQWBAeEfEfXWzlihUY5lPVwtDgYDh/9dq19LEwJDSUcc3q1f9pYiF6MNLch0ALu4FUCS55ghZii3hcBiBZpgHEN7AZjg1gWIgcLMgAOYiQLQOK3SQlVLBaCIp4ZHHkRECJZSRbCAQ96JYB9XgB2dvIyodEWAgC3mhmbAXiBhAmOZUSaSFOQHI+JNJClLiDBiXNfEjfOKRZKsUGaJYP8SmmeklDKqC4LCXDQvrWFuiW07w+xGYhXX2ILkZTC4kFoxZSHQAAIE/sHf15LFQAAAAASUVORK5CYII=);
+}

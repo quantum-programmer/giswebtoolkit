@@ -1,0 +1,19 @@
+{
+  "version": "6.19.0",
+  "locale": "ru-ru",
+  "title": "\u041d\u043e\u0433\u0438\u043d\u0441\u043a\u0438\u0439 \u0440\u0430\u0439\u043e\u043d",
+  "logo": "http://localhost/gwsse/images/logo.png",
+  "isAdmin": true,
+  "loggedInFlag": true,
+  "authType": 0,
+  "allowExit": true,
+  "geoDB": {
+    "url": ""
+  },
+  "userName": "admin",
+  "session": {
+    "username": "admin",
+    "defaultUser": "ANONYMOUS"
+  }
+}
+

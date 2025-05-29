@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- подключение стилей -->
+    <link rel="stylesheet" href="gwtkse/MapVue-6.23.0-1.css">
+
+    <title>GIS WebToolKit SE - пример использования</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no" />
+    <meta content="true" name="HandheldFriendly" />
+    <meta content="width" name="MobileOptimized" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <style>
+        html {
+            overflow-y: hidden !important;
+        }
+
+        body {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<div id="dvMap"></div>
+
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+
+<!-- подключение jquery -->
+<script src="jquery/jquery-1.12.4.min.js"></script>
+<!-- подключение w2ui -->
+<script src="w2ui/w2ui-1.4.2.min.js"></script>
+
+<!-- подключение Vue -->
+<script src="vue.min.js"></script>
+<!-- подключение компонентов -->
+<script src="gwtkse/MapVue-6.23.0-1.umd.min.js"></script>
+
+<!-- класс MapVue (для сборки в качестве библиотеки) -->
+<!--<script src="mapvue.js"></script>-->
+
+<!-- запуск приложения -->
+<script src="main.js"></script>
+</body>
+</html>

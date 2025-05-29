@@ -1,0 +1,85 @@
+.gwtk-object-item-editor .gwtk-page-toolbar .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-object-item-editor .v-list-item__content {
+    padding-top: var(--list-item-padding-top);
+    padding-bottom: var(--list-item-padding-bottom);
+}
+
+.gwtk-object-item-editor .gwtk-list-item-right-slot-content .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-object-item-editor .gwtk-list-item-right-slot-content .gwtk-svg-icon {
+    width: var(--v-btn-icon-size);
+    height: var(--v-btn-icon-size);
+}
+
+.gwtk-object-item-editor-list .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+
+.gwtk-object-item-editor-list .v-list--dense .v-list-item .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}
+
+.gwtk-map-object-item-metric-editor .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    width: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-object-item-metric-editor .gwtk-button .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-map-object-item-metric-editor .gwtk-button .gwtk-svg-icon {
+    width: var(--v-btn-icon-size);
+    height: var(--v-btn-icon-size);
+}
+
+.gwtk-object-item-editor-list .v-list-item {
+    min-height: var(--list-item-min-height-dense);
+}
+
+.gwtk-object-item-editor-list .v-list--dense .v-list-item .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}
+
+.gwtk-map-object-item-metric-editor .point-list-container .row+.row {
+    margin-top: var(--container-separator-margin-top);
+}
+
+.gwtk-map-object-item-metric-editor .point-list-container .row+.row {
+    margin-top: var(--container-separator-margin-top);
+}
+
+.gwtk-map-object-item-metric-editor .v-expansion-panel--active>.v-expansion-panel-header {
+    min-height: var(--expansion-panel-header-height);
+}
+
+.gwtk-map-object-item-metric-editor .v-input__control {
+    height: var(--text-field-filled-full-width-outlined-single-line-slot-min-height);
+}
+
+.gwtk-object-item-editor .container .layout .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}

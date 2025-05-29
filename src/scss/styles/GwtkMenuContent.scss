@@ -1,0 +1,25 @@
+.gwtk-menu-content .v-list-item {
+    min-height: var(--list-item-min-height)
+}
+
+.gwtk-menu-content .v-list-item__content {
+    padding-top: var(--list-item-padding-top);
+    padding-bottom: var(--list-item-padding-bottom);
+}
+
+.gwtk-menu-content .v-list-item__icon {
+    margin: var(--list-item-icon-margin);
+}
+
+.gwtk-menu-content .v-list-item__icon>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-list-item .gwtk-svg-icon {
+    width: var(--v-btn-icon-size) ;
+    height: var(--v-btn-icon-size);
+}
+.gwtk-menu-content .gwtk-list-item {
+    padding-top: var(--list-item-padding-top);
+    padding-bottom: var(--list-item-padding-bottom); 
+}

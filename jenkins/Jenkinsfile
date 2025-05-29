@@ -1,0 +1,177 @@
+pipeline
+{
+    agent none
+    options {
+        ansiColor('xterm')
+        skipDefaultCheckout true
+    }
+    stages
+    {
+        stage('Build GWTKSE')
+        {
+            agent any
+            stages
+            {
+                stage('Clean workspace')
+                {
+                    steps
+                    {
+                        cleanWs(deleteDirs: true)
+
+                        checkout scm
+                    }
+                }  // stage ("Clean workspace")
+                stage('Define environment variables')
+                {
+                    steps
+                    {
+                        script
+                        {
+                            def jsonArrayValues = readJSON file: './package.json'
+                            if (jsonArrayValues.version) {
+                                env.APP_VERSION = jsonArrayValues.version
+                            }
+                            else {
+                                env.APP_VERSION = '3.0.0'
+                            }
+                        }
+                    }
+                }  // stage ("Define environment variables")
+                stage('Selenium tests')
+                {
+                   when {
+                       branch 'release*'
+                   }
+                   steps
+                    {
+                       sh('bash ./docker/gwtkse-build.sh')
+                       sh('bash ./docker/node-server-run.sh')
+                    }
+                }  // stage ("Selenium tests")
+                stage('Build')
+                {
+                    steps
+                    {
+                        sh('bash ./docker/gwsse-build.sh')
+                    }
+                }  // stage ("Build")
+                stage('Upload artifacts')
+                {
+                   steps
+                    {
+                       sh('bash ./docker/pack.sh')
+
+                       uploadArtifact('gwtkse', 'gwtkse.tar', 'tar', 'gwtkse')
+                    }
+                }  // stage ("Upload artifacts")
+                stage('GIS-CD.Add')
+                {
+                    when {
+                        branch 'release*'
+                    }
+                    steps {
+                        sh('bash ./docker/gwtkse-readme.sh')
+
+                        sh('bash ./docker/update_documentation.sh')
+
+                        sh('bash ./docker/create_GIS-CD_Add.sh')
+
+                        uploadArtifact('GIS_WebToolKit_SE', 'GIS_WebToolKit_SE.tar', 'tar', 'gwtkse')
+                    }
+                    post
+                    {
+                        success
+                        {
+                            sendRocketMessage('gwtkse/GIS-CD.Add', 'success', getRocketChannel(), \
+                                formDownloadLinkForChat('GIS_WebToolKit_SE', 'tar', 'GIS-CD.Add'))
+                        }
+
+                        failure
+                        {
+                            sendRocketMessage('gwtkse/GIS-CD.Add', 'failure', getRocketChannel())
+                        }
+
+                        unstable
+                        {
+                            sendRocketMessage('gwtkse/GIS-CD.Add', 'unstable', getRocketChannel())
+                        }
+                    }
+                } //stage("GIS-CD.Add")
+            } // stages
+            post
+            {
+                success
+                {
+                    sendRocketMessage('gwtkse', 'success', getRocketChannel(), \
+                        formDownloadLinkForChat('gwtkse', 'tar', 'Install'))
+                }
+                failure
+                {
+                    sendRocketMessage('gwtkse', 'failure', getRocketChannel())
+                }
+                unstable
+                {
+                    sendRocketMessage('gwtkse', 'unstable', getRocketChannel())
+                }
+            }
+        } // stage ("Build GWTKSE")
+    } // stages
+}
+
+void uploadArtifact(String artifactID, String filename, String filetype, String nexusRepo) {
+    GWTK_COMMIT_HASH = sh(script: 'git rev-parse --short=8 HEAD', returnStdout: true).trim()
+
+    sh("echo \"Uploading ${artifactID}\"")
+    nexusArtifactUploader artifacts: [\
+        [\
+        artifactId: "${artifactID}",
+        classifier: '',
+        file: "${filename}",
+        type: "${filetype}"\
+        ]\
+    ], \
+    credentialsId: '575590b9-7052-4db3-bd50-b9fbe844dd08', \
+    groupId: "/${env.BRANCH_NAME}".replaceAll("\\.", '_'), \
+    nexusUrl: 'nexus.panorama.local', nexusVersion: 'nexus3', protocol: 'http', \
+    repository: "${nexusRepo}", \
+    version: "${env.APP_VERSION}-${env.BUILD_NUMBER}-${GWTK_COMMIT_HASH}"
+}
+
+String formDownloadLink(String product, String fileType) {
+    return 'http://nexus.panorama.local/repository/gwtkse/' + "${env.BRANCH_NAME}".replaceAll("\\.", '_') + "/${product}/${env.APP_VERSION}-${env.BUILD_NUMBER}-${GWTK_COMMIT_HASH}/${product}-${env.APP_VERSION}-${env.BUILD_NUMBER}-${GWTK_COMMIT_HASH}.${fileType}"
+}
+
+String formDownloadLinkForChat(String product, String fileType, String messageTitle) {
+    return ' <' + formDownloadLink(product, fileType) + '|' + "${messageTitle}" + '>'
+}
+
+String getRocketChannel(String rocketChannel = 'alerts_build_gwtkse') {
+    if (env.BRANCH_NAME.matches('devel') || env.BRANCH_NAME.matches('release(.*)')) {
+        return rocketChannel
+    }
+    return 'alerts_build_gwtkse'
+}
+
+void sendRocketMessage(String product, String messageType, String messageChannel, String messageAdditional = '') {
+    GWTK_COMMIT_HASH = sh(script: 'git rev-parse --short=8 HEAD', returnStdout: true).trim()
+
+    if ("${messageType}" == 'success') {
+        messageEmoji = ':alien:'
+        messageBase = "Сборка ${product} *${env.APP_VERSION}-${env.BUILD_NUMBER}* (${BRANCH_NAME}) (${GWTK_COMMIT_HASH}) прошла успешно! [Logs](${BUILD_URL}/console), ${messageAdditional}"
+    }
+    else if ("${messageType}" == 'failure') {
+        messageEmoji = ':rage:'
+        messageBase = "Ошибка сборки ${product} *${env.APP_VERSION}-${env.BUILD_NUMBER}* (${BRANCH_NAME}) (${GWTK_COMMIT_HASH}). [Logs](${BUILD_URL}/console) ${messageAdditional}"
+    }
+    else if ("${messageType}" == 'unstable') {
+        messageEmoji = ':upside_down:'
+        messageBase = "Сборка ${product} *${env.APP_VERSION}-${env.BUILD_NUMBER}* (${BRANCH_NAME}) (${GWTK_COMMIT_HASH}) нестабильна! [Logs](${BUILD_URL}/console) ${messageAdditional}"
+    }
+
+    rocketSend(
+        channel: "${messageChannel}",
+        emoji: "${messageEmoji}",
+        message: "${messageBase}",
+        rawMessage: true)
+}
+

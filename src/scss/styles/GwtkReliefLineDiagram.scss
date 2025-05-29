@@ -1,0 +1,29 @@
+.gwtk-relief-line-diagram-options .v-input__slot .v-input__append-inner>div {
+    height: var(--v-text-field-append-inner-icon-size) !important;
+    width: var(--v-text-field-append-inner-icon-size) !important;
+}
+
+.gwtk-relief-line-diagram-options .v-input--checkbox.v-input--dense {
+    margin-top: var(--checkbox-dense-margin-top);
+}
+
+.gwtk-relief-line-diagram-options .v-input--selection-controls {
+    padding-top: var(--checkbox-dense-margin-top);
+}
+
+.gwtk-relief-line-diagram-main-panel .gwtk-svg-icon {
+    width: var(--v-btn-icon-size);
+    height: var(--v-btn-icon-size);
+}
+
+.gwtk-relief-line-diagram-main-panel .gwtk-button .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-relief-line-diagram-main-panel .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}

@@ -1,0 +1,850 @@
+{
+	"3857": [
+		{
+			"name": "Name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"name": "Scale",
+			"value": 2000,
+			"type": "number"
+		},
+		{
+			"name": "EPSGCode",
+			"value": 3857,
+			"type": "number"
+		},
+		{
+			"name": "EllipsoideKind",
+			"value": 45,
+			"type": "number"
+		},
+		{
+			"name": "HeightSystem",
+			"value": 27,
+			"type": "number"
+		},
+		{
+			"name": "MaterialProjection",
+			"value": 35,
+			"type": "number"
+		},
+		{
+			"name": "CoordinateSystem",
+			"value": 6,
+			"type": "number"
+		},
+		{
+			"name": "PlaneUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "HeightUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FrameKind",
+			"value": 3,
+			"type": "number"
+		},
+		{
+			"name": "MapType",
+			"value": 19,
+			"type": "number"
+		},
+		{
+			"name": "DeviceCapability",
+			"value": -1,
+			"type": "number"
+		},
+		{
+			"name": "DataProjection",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneIdent",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FlagRealPlace",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneNumber",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FirstMainParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "SecondMainParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "AxisMeridian",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MainPointParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "PoleLatitude",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "PoleLongitude",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "FalseEasting",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "ScaleFactor",
+			"value": 1.0,
+			"type": "number"
+		},
+		{
+			"name": "TurnAngle",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DZ",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RZ",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "M",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "Count",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "SemiMajorAxis",
+			"value": 6378137.0,
+			"type": "number"
+		},
+		{
+			"name": "InverseFlattening",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "SystemType",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "IsGeoSupported",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "MinX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MinY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MaxX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MaxY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "BaseScale",
+			"value": 100000,
+			"type": "number"
+		}
+	],
+	"3395": [
+		{
+			"name": "Name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"name": "Scale",
+			"value": 2000,
+			"type": "number"
+		},
+		{
+			"name": "EPSGCode",
+			"value": 3395,
+			"type": "number"
+		},
+		{
+			"name": "EllipsoideKind",
+			"value": 9,
+			"type": "number"
+		},
+		{
+			"name": "HeightSystem",
+			"value": 27,
+			"type": "number"
+		},
+		{
+			"name": "MaterialProjection",
+			"value": 35,
+			"type": "number"
+		},
+		{
+			"name": "CoordinateSystem",
+			"value": 6,
+			"type": "number"
+		},
+		{
+			"name": "PlaneUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "HeightUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FrameKind",
+			"value": 3,
+			"type": "number"
+		},
+		{
+			"name": "MapType",
+			"value": 19,
+			"type": "number"
+		},
+		{
+			"name": "DeviceCapability",
+			"value": -1,
+			"type": "number"
+		},
+		{
+			"name": "DataProjection",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneIdent",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FlagRealPlace",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneNumber",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FirstMainParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "SecondMainParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "AxisMeridian",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MainPointParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "PoleLatitude",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "PoleLongitude",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "FalseEasting",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "ScaleFactor",
+			"value": 1.0,
+			"type": "number"
+		},
+		{
+			"name": "TurnAngle",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DZ",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RZ",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "M",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "Count",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "SemiMajorAxis",
+			"value": 6378137.0,
+			"type": "number"
+		},
+		{
+			"name": "InverseFlattening",
+			"value": 0.00335281,
+			"type": "number"
+		},
+		{
+			"name": "SystemType",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "IsGeoSupported",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "MinX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MinY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MaxX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MaxY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "BaseScale",
+			"value": 100000,
+			"type": "number"
+		}
+	],
+	"4326": [
+		{
+			"name": "Name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"name": "Scale",
+			"value": 2000,
+			"type": "number"
+		},
+		{
+			"name": "EPSGCode",
+			"value": 4326,
+			"type": "number"
+		},
+		{
+			"name": "EllipsoideKind",
+			"value": 9,
+			"type": "number"
+		},
+		{
+			"name": "HeightSystem",
+			"value": 27,
+			"type": "number"
+		},
+		{
+			"name": "MaterialProjection",
+			"value": 33,
+			"type": "number"
+		},
+		{
+			"name": "CoordinateSystem",
+			"value": 6,
+			"type": "number"
+		},
+		{
+			"name": "PlaneUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "HeightUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FrameKind",
+			"value": 3,
+			"type": "number"
+		},
+		{
+			"name": "MapType",
+			"value": 16,
+			"type": "number"
+		},
+		{
+			"name": "DeviceCapability",
+			"value": -1,
+			"type": "number"
+		},
+		{
+			"name": "DataProjection",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneIdent",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FlagRealPlace",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneNumber",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FirstMainParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "SecondMainParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "AxisMeridian",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MainPointParallel",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "PoleLatitude",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "PoleLongitude",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "FalseEasting",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "ScaleFactor",
+			"value": 1.0,
+			"type": "number"
+		},
+		{
+			"name": "TurnAngle",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "DZ",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "RZ",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "M",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "Count",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "SemiMajorAxis",
+			"value": 6378137.0,
+			"type": "number"
+		},
+		{
+			"name": "InverseFlattening",
+			"value": 0.00335281,
+			"type": "number"
+		},
+		{
+			"name": "SystemType",
+			"value": 2,
+			"type": "number"
+		},
+		{
+			"name": "IsGeoSupported",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "MinX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MinY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MaxX",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "MaxY",
+			"value": 0.0,
+			"type": "number"
+		},
+		{
+			"name": "BaseScale",
+			"value": 100000,
+			"type": "number"
+		}
+	],
+	"28400": [
+		{
+			"name": "Name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"name": "Scale",
+			"value": 2000,
+			"type": "number"
+		},
+		{
+			"name": "EPSGCode",
+			"value": 28400,
+			"type": "number"
+		},
+		{
+			"name": "EllipsoideKind",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "HeightSystem",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "MaterialProjection",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "CoordinateSystem",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "PlaneUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "HeightUnit",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FrameKind",
+			"value": 2,
+			"type": "number"
+		},
+		{
+			"name": "MapType",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "DeviceCapability",
+			"value": -1,
+			"type": "number"
+		},
+		{
+			"name": "DataProjection",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneIdent",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FlagRealPlace",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "ZoneNumber",
+			"value": 0,
+			"type": "number"
+		},
+		{
+			"name": "FirstMainParallel",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "SecondMainParallel",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "AxisMeridian",
+			"value": 0.99483767,
+			"type": "number"
+		},
+		{
+			"name": "MainPointParallel",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "PoleLatitude",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "PoleLongitude",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "FalseEasting",
+			"value": 500000.00000000,
+			"type": "number"
+		},
+		{
+			"name": "ScaleFactor",
+			"value": 1.00000000,
+			"type": "number"
+		},
+		{
+			"name": "TurnAngle",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "DX",
+			"value": 23.57000000,
+			"type": "number"
+		},
+		{
+			"name": "DY",
+			"value": -140.95000000,
+			"type": "number"
+		},
+		{
+			"name": "DZ",
+			"value": -79.80000000,
+			"type": "number"
+		},
+		{
+			"name": "RX",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "RY",
+			"value": -0.35000000,
+			"type": "number"
+		},
+		{
+			"name": "RZ",
+			"value": -0.79000000,
+			"type": "number"
+		},
+		{
+			"name": "M",
+			"value": -0.00000022,
+			"type": "number"
+		},
+		{
+			"name": "Count",
+			"value": 7,
+			"type": "number"
+		},
+		{
+			"name": "SemiMajorAxis",
+			"value": 6378245.00000000,
+			"type": "number"
+		},
+		{
+			"name": "InverseFlattening",
+			"value": 0.00335233,
+			"type": "number"
+		},
+		{
+			"name": "SystemType",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "IsGeoSupported",
+			"value": 1,
+			"type": "number"
+		},
+		{
+			"name": "MinX",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "MinY",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "MaxX",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "MaxY",
+			"value": 0.00000000,
+			"type": "number"
+		},
+		{
+			"name": "BaseScale",
+			"value": 100000,
+			"type": "number"
+		}
+	]
+}

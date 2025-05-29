@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no"/>
+    <meta content="true" name="HandheldFriendly"/>
+    <meta content="width" name="MobileOptimized"/>
+    <meta content="yes" name="mobile-web-app-capable"/>
+
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link href="styles.css?ver=1" rel="stylesheet"/>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but application doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<div id="loadingScreen" class="loading-screen">
+    <div class="loading-screen-image">
+        <img src="images/loading-screen-logo.svg" alt="Loading screen">
+    </div>
+    <div class="loading-screen-dots">
+        <img src="images/circles-menu.gif" alt="Loading...">
+    </div>
+</div>
+
+<div class="gwtk-main-app-element">
+    <div id="dvMap"></div>
+</div>
+
+
+<!-- jquery -->
+<script src="jquery/jquery-1.12.4.min.js"></script>
+<!-- w2ui 1.4.2 -->
+<script src="w2ui/w2ui-1.4.2.min.js"></script>
+
+<script>
+    function loadUserComponent(path) {
+        return import(path);
+    }
+</script>
+
+</body>
+</html>

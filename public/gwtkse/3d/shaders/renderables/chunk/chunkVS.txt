@@ -1,0 +1,41 @@
+attribute vec3 aVertexPosition;
+attribute vec3 aVertexNormal;
+attribute vec2 aTextureCoord;
+
+uniform mat4 uMVMatrix;
+uniform vec3 uCenterPoint;
+
+varying vec2 vTextureCoord;
+varying vec4 vTextureLightIntencity;
+varying vec3 vLightingDirection;
+varying vec2 vDepth;
+varying vec3 vWaveNormal;
+
+
+struct LightInfo {
+      vec3 position;
+      vec4 ambient;
+      vec4 diffuse;
+      vec4 specular;
+};
+uniform LightInfo u_Light;
+
+vec4 phongTex(vec4 position, vec3 normal, LightInfo uLight)
+{
+   vec3 s = normalize(uLight.position - position.xyz);
+   vec4 ambient = uLight.ambient;
+   float sDotN = max(dot(s, normal), 0.0);
+   vec4 diffuse = vec4(uLight.diffuse.rgb * sDotN,1.);
+   return clamp(ambient + diffuse,0.,1.);
+}
+
+void main()
+{
+    vec4 clipPosition = uMVMatrix*vec4(aVertexPosition,1.);
+    vTextureCoord=aTextureCoord;
+    gl_Position = applyLogarithmicDepth(clipPosition, u_logarithmicDepth, uFcoef);
+    vDepth=gl_Position.zw;
+    vTextureLightIntencity=phongTex(vec4(uCenterPoint+aVertexPosition,1.), normalize(aVertexNormal), u_Light);
+    vLightingDirection=-normalize(u_Light.position);
+    vWaveNormal=normalize(vec3(1.));
+}

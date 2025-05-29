@@ -1,0 +1,52 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "esnext",
+		"strict": true,
+		"jsx": "preserve",
+		"importHelpers": true,
+		"moduleResolution": "node",
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"baseUrl": ".",
+		"resolveJsonModule": true,
+		"types": [
+			"jest",
+			"webpack-env"
+		],
+		"paths": {
+			"@/*": [
+				"./src/*"
+			],
+			"~/*": [
+				"./GIS WebToolKit SE/debug/source/*"
+			]
+		},
+		"lib": [
+			"esnext",
+			"dom",
+			"dom.iterable",
+			"scripthost"
+		]
+	},
+	"include": [
+		"gwsse-app/**/*.ts",
+		"gwsse-app/**/*.vue",
+		"example/**/*.ts",
+		"example/**/*.vue",
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"GIS WebToolKit SE/debug/source/**/*.ts",
+		"tests/**/*.ts",
+		"tests/**/*.tsx"
+	],
+	"exclude": [
+		"node_modules",
+		"GIS WebToolKit SE/debug/source/3d/engine/worker/workerscripts/*.ts"
+	]
+}

@@ -1,0 +1,98 @@
+.gwtk-map-editor .v-btn--icon.v-size--default {
+    height: var(--v-btn-height--default);
+    width: var(--v-btn-height--default);
+}
+
+.gwtk-map-editor .row--dense>.col {
+    padding-top: var(--row-dense-padding);
+    padding-bottom: var(--row-dense-padding);
+}
+
+.gwtk-map-editor-buttons .gwtk-clean.v-btn:not(.v-btn--round).v-size--default {
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-editor-buttons .v-btn--block .gwtk-svg-icon {
+    width: var(--v-btn-icon-size);
+    height: var(--v-btn-icon-size);
+}
+
+.gwtk-actions-buttons .v-btn--icon.v-size--default {
+    height: var(--v-btn-height--default);
+    width: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-editor-buttons .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default);
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-editor-manual-input svg {
+    width: var(--v-text-field-icon-size);
+    height: var(--v-text-field-icon-size);
+}
+
+.gwtk-map-editor-manual-input .gwtk-button .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-map-editor-manual-input-add-menu .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+.gwtk-map-editor-manual-input-add-menu .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}
+.gwtk-map-editor-manual-input-add-menu .v-list-item__icon {
+    margin: var(--list-item-icon-margin);
+}
+.gwtk-map-editor-manual-input-add-menu .v-list-item__icon>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-map-editor-manual-input-select-crs .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+.gwtk-map-editor-manual-input-select-crs .v-list-item .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}
+
+.gwtk-map-editor-manual-input svg {
+    width: var(--v-text-field-icon-size);
+    height: var(--v-text-field-icon-size);
+}
+
+.gwtk-map-editor-manual-input .gwtk-button .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-map-editor-manual-input-add-menu .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+.gwtk-map-editor-manual-input-add-menu .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}
+.gwtk-map-editor-manual-input-add-menu .v-list-item__icon {
+    margin: var(--list-item-icon-margin);
+}
+.gwtk-map-editor-manual-input-add-menu .v-list-item__icon>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+
+.gwtk-map-editor-manual-input-select-crs .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+.gwtk-map-editor-manual-input-select-crs .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}

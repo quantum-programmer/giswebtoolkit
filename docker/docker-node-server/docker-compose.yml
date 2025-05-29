@@ -1,0 +1,62 @@
+version: "3"
+
+services:
+  serve:
+    image: node-web-app-slim
+    build: "$CURRENT_DIR/docker-node-server"
+    environment:
+      - PORT=$PORT
+    ports:
+      - "8081:8080"
+    network_mode: bridge
+    volumes:
+      - "$GWTK_APP_DIR:/usr/src/app/gwtk-app"
+    container_name: gwtk-serve
+
+  selenoid:
+    container_name: selenoid
+    build: "$CURRENT_DIR/docker-selenoid"
+    network_mode: bridge
+    links:
+      - serve
+      - vnc-chrome-102
+      - chrome-102
+    ports:
+      - "5000:4444"
+    volumes:
+      #      - ${CURRENT_DIR}/docker-selenoid/selenoid/video:/opt/selenoid/video
+      #      - ${CURRENT_DIR}/docker-selenoid/selenoid/logs:/opt/selenoid/logs
+      - "/var/run/docker.sock:/var/run/docker.sock"
+  #    command: [ "-conf", "/etc/selenoid/browsers.json", "-container-network", "ui-test_selenoid", "-limit", "10", "-retry-count", "2" ]
+  selenoid-ui:
+    container_name: selenoid-ui
+    image: "aerokube/selenoid-ui"
+    network_mode: bridge
+    links:
+      - selenoid
+      - serve
+    ports:
+      - "3000:8080"
+    command: [ "--selenoid-uri", "http://selenoid:4444" ]
+
+  ui-tests:
+    build: "$CURRENT_DIR/docker-python-tests"
+    container_name: ui-tests
+    network_mode: bridge
+    links:
+      - serve
+      - selenoid
+    volumes:
+      - "${CURRENT_DIR}/../:/usr/src/app/gwtk:rw"
+
+  chrome-102:
+    build: "$CURRENT_DIR/docker-selenoid/chrome-102"
+    container_name: chrome-102
+    image: "selenoid/chrome:102.0"
+    network_mode: bridge
+
+  vnc-chrome-102:
+    build: "$CURRENT_DIR/docker-selenoid/vnc-chrome-102"
+    container_name: vnc-chrome-102
+    image: "selenoid/vnc:chrome_102.0"
+    network_mode: bridge

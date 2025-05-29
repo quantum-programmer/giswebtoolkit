@@ -1,0 +1,26 @@
+precision mediump float;
+
+//Текстура глубины поверхности
+uniform sampler2D og_texture0;
+//Текстура глубины сцены
+uniform sampler2D og_texture1;
+
+varying vec3 vCoords;
+
+void main()
+{
+    vec2 textureCoord=vCoords.xy/(2.*vCoords.z)+vec2(0.5);
+
+    vec4 surfaceDepthTextureColor=texture2D(og_texture0, textureCoord);
+    highp float surfaceDepth = dot(surfaceDepthTextureColor, vec4(1., 1. / 255., 1. / 65025., 1. / 16581375.));
+
+    vec4 depthTextureColor=texture2D(og_texture1, textureCoord);
+    highp float textureDepth = dot(depthTextureColor, vec4(1., 1. / 255., 1. / 65025., 1. / 16581375.));
+
+    //если что-то находится на поверхности, не рисуем
+    if( surfaceDepth > textureDepth)
+    {
+        discard;
+    }
+}
+

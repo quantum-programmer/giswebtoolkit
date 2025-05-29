@@ -1,0 +1,77 @@
+attribute vec3 aVertexPosition;
+attribute vec3 aVertexNormal;
+attribute float aVertexMaterial;
+
+varying vec4 vPosition;
+varying vec4 v_LightIntensity;
+
+const float POW256_2=65536.;
+const int MAX_MATERIAL_COUNT=60;
+
+uniform mat4 uMVMatrix;
+uniform vec3 uViewPosition;
+uniform vec3 uCenterPoint;
+
+struct LightInfo {
+    vec3 position;
+    vec4 ambient;
+    vec4 diffuse;
+    vec4 specular;
+};
+uniform LightInfo u_Light;
+
+struct MaterialInfo {
+    vec4 ADSE;
+    vec2 ST;
+};
+uniform MaterialInfo u_Material[MAX_MATERIAL_COUNT];
+
+vec4 unpackColor(float f)
+{
+    vec3 color;
+    color.b = floor(f / POW256_2);
+    color.g = floor((f - color.b * POW256_2) / 256.0);
+    color.r = floor(f - color.b * POW256_2 - color.g * 256.0);
+    // now we have a vec3 with the 3 components in range [0..255]. Let's normalize it!
+    return vec4(color / 255.0,1.);
+}
+
+vec4 phong(vec4 p,vec3 viewPos, vec3 n, LightInfo uLight,MaterialInfo material)
+{
+    vec3 s = normalize(uLight.position - p.xyz);
+    vec3 v = normalize(viewPos);
+    vec3 r = reflect(-s, n);
+
+    vec4 ambient = uLight.ambient * unpackColor(material.ADSE[0]);
+    float sDotN = max(dot(s, n), 0.0);
+    vec4 diffuse = uLight.diffuse * unpackColor(material.ADSE[1]) * sDotN;
+
+    vec4 spec = vec4(0.0);
+
+    if (sDotN > 0.0&&material.ST[0]>0.) {
+      spec = uLight.specular * unpackColor(material.ADSE[2]) * pow(max(dot(r, v), 0.0), material.ST[0]);
+    }
+
+    return clamp(ambient + diffuse + spec+unpackColor(material.ADSE[3]),0.,1.)*vec4(1.,1.,1.,material.ST[1]);
+}
+
+
+
+void main()
+{
+    vec4 clipPosition = uMVMatrix*vec4(aVertexPosition,1.);
+    gl_Position = applyLogarithmicDepth(clipPosition, u_logarithmicDepth, uFcoef);
+    vPosition = gl_Position;
+
+    int material=int(aVertexMaterial);
+    if(material>=MAX_MATERIAL_COUNT)
+    {
+        material=0;
+    }
+    if(material>=0){
+        v_LightIntensity = phong(vec4(uCenterPoint+aVertexPosition,1.),-uViewPosition, aVertexNormal, u_Light, u_Material[material]);
+    }
+    else{
+        v_LightIntensity=vec4(0.);
+    }
+}

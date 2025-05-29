@@ -1,0 +1,41 @@
+
+
+precision mediump float;
+// Изменяемые между шейдерами переменные текстурных координат, освещенности, цвета вершины
+varying vec4 vPosition;
+varying float outputPercentLife;
+varying vec4 outputColorMult;
+varying vec2 outputTexcoord;
+
+
+uniform sampler2D colorSampler;
+uniform sampler2D rampSampler;
+
+// Цвет фигуры
+// Флаг рисования текстуры
+uniform bool uTextureFlag;
+
+
+// Флаг рисования текстуры
+uniform bool uDepthTextureFlag;
+#define DepthTemplate vec4(1., 1. / 255., 1. / 65025., 1. / 16581375.)
+void main()
+{
+
+if(uTextureFlag){
+}
+
+if(uDepthTextureFlag&&vPosition.z<3000.){
+}
+
+    vec4 colorMult = texture2D(rampSampler, vec2(outputPercentLife, 0.5)) *
+                        outputColorMult;
+
+    if (outputPercentLife < 0.2){
+        gl_FragColor = texture2D(colorSampler, outputTexcoord) * outputColorMult;// vec4(outputColorMult.xyz, 1.);
+    }
+    else {
+        gl_FragColor = texture2D(colorSampler, outputTexcoord) * vec4(outputColorMult.xyz, (outputPercentLife + 0.5))   ;
+    }
+
+}

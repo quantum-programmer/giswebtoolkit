@@ -1,0 +1,63 @@
+.gwtk-map-route .v-input__append-inner .v-progress-circular {
+    height: var(--v-progress-circular-size) !important;
+    width: var(--v-progress-circular-size) !important;
+}
+
+.gwtk-map-route .v-input__append-outer .v-btn--icon.v-size--default {
+    height: var(--list-item-icon-btn-height);
+    width: var(--list-item-icon-btn-height);
+}
+
+.gwtk-map-route .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}
+.gwtk-map-route .v-list-item__content {
+    padding-top: var(--list-item-dense-padding-top);
+    padding-bottom: var(--list-item-dense-padding-bottom);
+}
+.gwtk-map-route .text-body-1 .v-btn--icon .v-btn__content>i {
+    font-size: var(--v-btn-icon-size) !important;
+}
+.gwtk-map-route .v-input__slot .v-input__append-inner>div {
+    height: var(--v-text-field-append-inner-icon-size) !important;
+    width: var(--v-text-field-append-inner-icon-size) !important;
+}
+
+.gwtk-map-route .gwtk-map-route-source .v-input__control {
+    height: var(--text-field-filled-full-width-outlined-single-line-slot-min-height);
+}
+
+.gwtk-map-route .gwtk-map-route-source .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+.gwtk-map-route .gwtk-route-button-container .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+.gwtk-map-route .gwtk-map-route-history .v-btn:not(.v-btn--round).v-size--default {
+    height: var(--v-btn-height--default) !important;
+    padding-right: var(--px-2) !important;
+    padding-left: var(--px-2) !important;
+    padding-top: var(--py-2) !important;
+    padding-bottom: var(--py-2) !important;
+}
+
+.gwtk-map-route .gwtk-map-route-history .v-list-item__action .gwtk-svg-icon {
+    width: var(--v-btn-icon-size);
+    height: var(--v-btn-icon-size);
+}
+.gwtk-map-route .gwtk-map-route-source .gwtk-svg-icon {
+    width: var(--v-btn-icon-size);
+    height: var(--v-btn-icon-size);
+}
+
+.gwtk-map-route .v-input--dense:not(.v-text-field--solo).v-text-field--outlined .v-input__append-inner{
+    margin-top: 0;
+}

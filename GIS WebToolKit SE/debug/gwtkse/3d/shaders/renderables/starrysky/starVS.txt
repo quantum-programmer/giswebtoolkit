@@ -1,0 +1,22 @@
+attribute vec3 aVertexPosition;
+attribute vec2 aTextureCoord;
+attribute vec4 aVertexColor;
+attribute float aVertexSize;
+// Устанавливаемые извне униформы
+uniform mat4 uMVMatrix;
+uniform float uAspectRatio;
+
+// Изменяемые между шейдерами переменные текстурных координат
+varying vec2 vTextureCoord;
+varying vec4 vColor;
+
+
+void main(void) {
+    float halfSizeX = aVertexSize/2.0;
+    float halfSizeY = uAspectRatio*aVertexSize/2.0;
+    vec4 vVertexPosition = uMVMatrix * vec4(aVertexPosition, 1.0);
+    vTextureCoord = aTextureCoord;
+    vColor = aVertexColor/255.;
+    gl_Position = vec4(vVertexPosition[0]-halfSizeX*(0.5-vTextureCoord.s),vVertexPosition[1]-halfSizeY*(0.5-vTextureCoord.t),vVertexPosition[2],vVertexPosition[3]);
+   gl_Position.z=gl_Position.w;
+}

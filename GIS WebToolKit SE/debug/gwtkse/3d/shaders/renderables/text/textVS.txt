@@ -1,0 +1,128 @@
+precision highp float;
+
+attribute vec3 aVertexPosition;
+attribute vec2 aVertexTextureCoords;
+
+varying vec4 v_LightIntensity;
+varying vec4 v_BorderIntensity;
+varying vec2 vTextureCoord;
+//глубина (точнее чем FragCoord)
+varying vec2 vDepth;
+
+attribute vec4 aVertexOffset;
+attribute vec4 aVertexTextureParams;
+attribute vec4 aVertexNormal;
+attribute vec4 aVertexUp;
+attribute vec3 aVertexRight;
+
+// Устанавливаемые извне униформы
+uniform mat4 uMVMatrix;
+uniform vec3 uCameraUp;
+uniform vec3 uCameraRight;
+
+uniform vec3 uCenterPoint;
+uniform float uDevicePixelSize;
+
+const float UNSCALED_VALUE=1./533.;
+const float UNSCALED_RELATIVEHEIGHT_VALUE=1./2132.;
+
+struct MaterialInfo {
+  vec4 ADSE;
+  vec2 ST;
+};
+uniform MaterialInfo u_Material[2];
+
+//unpacking rgb color values from single float
+vec4 unpackColor(float f) {
+    vec3 color;
+    color.b = floor(f / 256.0 / 256.0);
+    color.g = floor((f - color.b * 256.0 * 256.0) / 256.0);
+    color.r = floor(f - color.b * 256.0 * 256.0 - color.g * 256.0);
+    // now we have a vec3 with the 3 components in range [0..255]. Let's normalize it!
+    return vec4(color / 255.0,1.);
+}
+
+
+float calcAngle(in vec3 currentVector, in vec3 targetVector) {
+
+    float angle= acos(dot(currentVector,targetVector));
+
+    if(dot(cross(currentVector,targetVector),uCenterPoint)<0.){
+        angle=2.*6.28318530718-angle;
+    }
+
+    return angle;
+}
+
+//rotate 'vector' around 'axis' by 'theta' angle
+vec3 rotateAroundAxis(vec3 vector, vec3 axis, float theta){
+
+    float cosTheta = cos(theta);
+    float t = 1.-cosTheta;
+    float sinTheta = sin(theta);
+
+    mat3 rotationMatrix=mat3(
+        t*axis[0]*axis[0]+cosTheta, t*axis[0]*axis[1]+sinTheta*axis[2], t*axis[0]*axis[2]-sinTheta*axis[1],
+        t*axis[0]*axis[1]-sinTheta*axis[2], t*axis[1]*axis[1]+cosTheta, t*axis[1]*axis[2]+sinTheta*axis[0],
+        t*axis[0]*axis[2]+sinTheta*axis[1], t*axis[1]*axis[2]-sinTheta*axis[0], t*axis[2]*axis[2]+cosTheta
+    );
+
+    return rotationMatrix*vector;
+}
+
+
+void main(void){
+
+    vec3 rightVector=vec3(1.,0.,0.);
+    vec3 upVector=vec3(0.,0.,1.);
+    float scale=1.;
+    vec4 pos = uMVMatrix*vec4(aVertexPosition,1.);
+    if(aVertexNormal.w>2.)  //VM_NOSCALE
+    {
+        scale=pos.w*UNSCALED_VALUE;
+    }
+
+    // apply rotation
+    if(aVertexNormal.w==1.||aVertexNormal.w==4.)    //VM_BYOBSER
+    {
+        rightVector=uCameraRight;
+        upVector=uCameraUp;
+    }
+    else if(aVertexNormal.w==2.||aVertexNormal.w==5.) //VM_BYOBSERVER
+    {
+        rightVector=aVertexRight;
+        vec3 normalInit =aVertexNormal.xyz;
+        vec3 centerVector=normalize(uCenterPoint);
+        vec3 normal=normalize(cross(uCameraRight,centerVector));
+        float angle=calcAngle(normalInit,normal);
+        rightVector=rotateAroundAxis(rightVector,centerVector,angle);
+        upVector=normalize(cross(normal,rightVector));
+    }
+    else
+    {
+        rightVector=aVertexRight;
+        upVector=aVertexUp.xyz;
+    }
+
+    float scaleRheight=pos.w*UNSCALED_RELATIVEHEIGHT_VALUE;
+    if(scaleRheight<1.)
+    {
+        scaleRheight=1.;
+    }
+    vec3 relativeHeight=normalize(uCenterPoint)*aVertexUp.w*scaleRheight;
+
+    vec4 position=vec4(1.);
+    position.xyz=aVertexPosition+uDevicePixelSize*scale*(rightVector*(aVertexOffset.x+aVertexOffset.z*aVertexTextureCoords.x)+upVector*(aVertexOffset.y+aVertexOffset.w*aVertexTextureCoords.y))+relativeHeight;
+
+    vec4 clipPosition = uMVMatrix * position;
+    gl_Position = applyLogarithmicDepth(clipPosition, u_logarithmicDepth, uFcoef);
+
+    vDepth=gl_Position.zw;
+
+    v_LightIntensity = unpackColor(u_Material[0].ADSE[0]);
+    v_BorderIntensity = unpackColor(u_Material[1].ADSE[0]);
+
+    vTextureCoord=aVertexTextureParams.xy+aVertexTextureCoords*aVertexTextureParams.zw;
+
+
+}

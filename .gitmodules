@@ -1,0 +1,3 @@
+[submodule "src/components/VuetifyComponents"]
+	path = src/components/VuetifyComponents
+	url = http://git.panorama.local/products/vuetify-components.git

@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Объекты недвижимости",
+        "code": "search_Real_Estate_Objects",
+        "descr": "Группа поиска по объектам недвижимости",
+        "defaultThematic": true
+    },
+    {
+        "id": 2,
+        "name": "Кадастровое деление",
+        "code": "search_Cadastral_division",
+        "descr": "Объекты кадастрового деления",
+        "defaultThematic": false
+    },
+    {
+        "id": 4,
+        "name": "Административно-территориальное деление",
+        "code": "search_Admin_boundaries",
+        "descr": "Объекты административно-территориального деления",
+        "defaultThematic": false
+    },
+    {
+        "id": 5,
+        "name": "Зоны и территории",
+        "code": "search_zones_territories",
+        "descr": "Объекты слоёв зоны и территории",
+        "defaultThematic": false
+    },
+    {
+        "id": 7,
+        "name": "Территориальные зоны",
+        "code": "search_terr_zones",
+        "descr": "Объекты слоя территориальные зоны",
+        "defaultThematic": false
+    },
+    {
+        "id": 15,
+        "name": "Комплексы объектов",
+        "code": "searchComplexObjects",
+        "descr": "Объекты слоя Комплексы объектов",
+        "defaultThematic": false
+    }
+]

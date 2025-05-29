@@ -1,0 +1,309 @@
+{
+	"type": "FeatureCollection",
+
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.53556252,
+					55.70627244
+				]
+			},
+			"properties": {
+				"id": "3",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер11_P0000030022",
+				"objecttype": "P0000030022",
+                "text": [
+                    {
+                        "key" : "SUBST_TYPE",
+                        "text": ["БЕТОН"]
+                    },
+                    {
+                        "key" : "MAX_NUMB",
+                        "text": ["100"]
+                    },
+                    {
+                        "key" : "MAX_CONTENT",
+                        "text": ["/300"]
+                    }
+                 ]            
+			},
+			"bbox": [
+				    37.53556252,
+					55.70627244,
+                	37.53556252,
+					55.70627244
+			]
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.56877899,
+					55.62159907
+				]
+			},
+			"properties": {
+				"id": "4",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P00000300304",
+				"objecttype": "P0000030030"
+			},
+			"bbox": [
+					37.56877899,
+					55.62159907,
+                	37.56877899,
+					55.62159907
+			]
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.60675907,
+					55.74636654
+				]
+			},
+			"properties": {
+				"id": "5",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030080",
+				"objecttype": "P0000030080"
+			},
+			"bbox": [
+					37.60675907,
+					55.74636654,
+					37.60675907,
+					55.74636654			]
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.55380154,
+					55.71567735
+				]
+			},
+			"properties": {
+				"id": "6",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030100",
+				"objecttype": "P0000030100"
+			},
+			"bbox": [
+				38.44485282897271,
+				55.84496406102693,
+				38.44485282897271,
+				55.84496406102693
+			]
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.60551453,
+					55.72831841
+				]
+			},
+			"properties": {
+				"id": "7",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030120",
+				"objecttype": "P0000030120"
+			},
+			"bbox": [
+					37.60551453,
+					55.72831841,
+					37.60551453,
+					55.72831841			]
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.56734133,
+					55.74316584
+				]
+			},
+			"properties": {
+				"id": "8",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030150",
+				"objecttype": "P0000030150"
+			},
+			"bbox": [
+				38.44485282897271,
+				55.84496406102693,
+				38.44485282897271,
+				55.84496406102693
+			]
+		},
+    		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.56734133,
+					56.74316584
+				]
+			},
+			"properties": {
+				"id": "9",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030161",
+				"objecttype": "P0000030161"
+			},
+			"bbox": [
+				38.44485282897271,
+				56.84496406102693,
+				38.44485282897271,
+				56.84496406102693
+			]
+		},    
+     		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.57734133,
+					56.74316584
+				]
+			},
+			"properties": {
+				"id": "10",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030162",
+				"objecttype": "P0000030162"
+			},
+			"bbox": [
+				38.44485282897271,
+				56.84496406102693,
+				38.44485282897271,
+				56.84496406102693
+			]
+		},         
+     		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.58734133,
+					56.74316584
+				]
+			},
+			"properties": {
+				"id": "11",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030171",
+				"objecttype": "P0000030171"
+			},
+			"bbox": [
+				38.44485282897271,
+				56.84496406102693,
+				38.44485282897271,
+				56.84496406102693
+			]
+		},
+     		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					37.59734133,
+					56.74316584
+				]
+			},
+			"properties": {
+				"id": "12",
+				"schema": null,
+				"code": "Point",
+				"key": "Point",
+				"name": "Маркер_P0000030172",
+				"objecttype": "P0000030172"
+			},
+			"bbox": [
+				38.44485282897271,
+				56.84496406102693,
+				38.44485282897271,
+				56.84496406102693
+			]
+		},
+		{
+			"type": "Feature",
+			"bbox": [
+				38.25778484343804,
+				55.423168701812614,
+				39.157290458672406,
+				55.59153942088154
+			],
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[
+						38.25778484343804,
+						55.59153942088154
+					],
+					[
+						38.25778484343804,
+						55.423168701812614
+					],
+					[
+						39.157290458672406,
+						55.423168701812614
+					],
+					[
+						39.157290458672406,
+						55.59153942088154
+					],
+					[
+						38.25778484343804,
+						55.59153942088154
+					]
+				]
+			},
+			"properties": {
+				"id": "13",
+				"schema": null,
+				"code": "Line",
+				"key": "Line",
+				"name": "Линия",
+				"semantics": []
+			},
+			"style": {
+				"stroke": "#01FD55",
+				"stroke-width": "5.00",
+				"stroke-dasharray": "",
+				"stroke-opacity": 1,
+				"stroke-dashoffset": 0,
+				"stroke-linecap": ""
+			}
+		}
+
+	]
+}

@@ -1,0 +1,21 @@
+.gwtk-search-by-semantic .gwtk-main-container .gwtk-button svg {
+    width: var(--gwtk-btn-height-icon-small);
+    height: var(--gwtk-btn-height-icon-small);
+}
+
+.gwtk-semantic-container-card .v-card__title {
+    padding-top: var(--card-subtitle-padding);
+    padding-bottom: var(--card-subtitle-padding);
+}
+
+.gwtk-search-by-semantic .v-list-item {
+    min-height: var(--list-item-min-height)
+}
+
+.gwtk-search-by-semantic .v-list-item__action {
+    margin: var(--list-item-action-margin)
+}
+
+.gwtk-search-by-semantic-select-object-type .v-select-list .v-list-item {
+    min-height: var(--list-item-min-height-dense)
+}

@@ -1,0 +1,17 @@
+attribute vec3 aVertexPosition;
+attribute vec2 aTextureCoord;
+
+// Устанавливаемые извне униформы
+uniform mat4 uMVMatrix;
+// Изменяемые между шейдерами переменные текстурных координат и освещенности
+varying vec2 vTextureCoord;
+
+void main(void){
+    // Заполнение системной переменной вектора координат вершины
+    vec4 position = vec4(aVertexPosition, 1.0);
+
+    vTextureCoord = aTextureCoord;
+
+    gl_Position=uMVMatrix * position;
+    gl_Position.z=gl_Position.w;
+}

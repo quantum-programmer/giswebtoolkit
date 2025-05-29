@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GIS WebToolKit SE - пример использования</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no" />
+    <meta content="true" name="HandheldFriendly" />
+    <meta content="width" name="MobileOptimized" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <style>
+        html {
+            overflow-y: hidden !important;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+        }
+
+        #dvMap {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<div id="dvMap"></div>
+
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+
+<!-- подключение стилей -->
+<link href="gwtkse.css" rel="stylesheet" />
+<!-- подключение jquery -->
+<script src="jquery/jquery-1.12.4.min.js"></script>
+<!-- подключение GWTK SE -->
+<script src="gwtkse.js"></script>
+<!-- запуск приложения -->
+<script>
+    var options = {
+        'url': 'https://gisserver.info/GISWebServiceSE/service.php',
+        'id': '1',
+        'center': [55.843436, 38.436089],
+        'isgeocenter': 1,
+        'tilematrix': 15,
+        'tilematrixset': 'GoogleMapsCompatible',
+        'locale': 'ru-ru',
+        'layers': [
+            {
+                'id': 'googleMap',
+                'url': 'http://mt1.google.com/vt/lyrs=m@250000000&hl=ru&src=app&x=%x&y=%y&z=%z&s=Galileo'
+            },
+            {
+                'id': 'noginsk3d',
+                'selectObject': true,
+                'url': 'SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0&FORMAT=image/png&LAYERS=noginsk_area&BBOX=%bbox&HEIGHT=%h&WIDTH=%w&CRS=%crs&dt=%dt'
+            }
+        ]
+    };
+
+    if (window.GWTK) {
+        loadFromUrl(options);
+        new GWTK.Map('dvMap', options);
+    }
+
+    function loadFromUrl(options) {
+        var urlParams = window.location.search.substring(1).split('&');
+        if (urlParams.length !== 0) {
+            var forcedParams = {};
+            for (var i = 0; i < urlParams.length; i++) {
+                var getVar = urlParams[i].split('=');
+                forcedParams[getVar[0]] = getVar[1] === undefined ? '' : getVar[1];
+            }
+            options.forcedParams = forcedParams;
+        }
+    }
+</script>
+</body>
+</html>
