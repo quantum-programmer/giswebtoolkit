@@ -186,8 +186,8 @@ export default class LineMeshSubdivision {
  * @param indices {Indices} Набор индексов
  */
 class LineMeshSubdivisionResult {
-    private readonly positions: Vector3D[]
-    private readonly indices: Indices
+    private readonly positions: Vector3D[];
+    private readonly indices: Indices;
 
     constructor( positions: Vector3D[], indices: Indices ) {
         this.positions = positions;
