@@ -47,7 +47,7 @@
     </v-container>
 </template>
 
-<script lang="ts" src="./GwtkPlantBreederMapObjectWidget.ts"/>
+<script lang="ts" src="./GwtkPlantBreederMapObjectWidget.ts" />
 
 <style scoped>
     .container-object {

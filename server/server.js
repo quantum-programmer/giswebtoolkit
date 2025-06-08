@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     <p>Доступные эндпоинты:</p>
     <ul>
       <li><a href="/api/test">/api/test</a> - Проверка сервера</li>
-      <li><a href="/api/sanizones">/api/sanizones</a> - Данные из таблицы</li>
+      <li><a href="/api/sanitzones">/api/sanitzones</a> - Данные из таблицы</li>
     </ul>
   `);
 });
@@ -42,9 +42,9 @@ app.get('/api/test', async (req, res) => {
   }
 });
 
-app.get('/api/sanizones', async (req, res) => {
+app.get('/api/sanitzones', async (req, res) => {
   try {
-    const { rows } = await pool.query('SELECT * FROM "Sanizones"');
+    const { rows } = await pool.query('SELECT * FROM "SanitZones"');
     res.json(rows.length > 0 ? rows : { message: 'Таблица пуста' });
   } catch (err) {
     res.status(500).json({ 

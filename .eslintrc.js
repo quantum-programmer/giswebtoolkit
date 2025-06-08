@@ -55,6 +55,7 @@ module.exports = {
             'allowUsingIterationVar': true
         }],
         'vue/script-indent': ['error', 4, { 'baseIndent': 1 }],
+		'vue/valid-v-slot': ['error', {allowModifiers: true}]
     },
     overrides: [
         {

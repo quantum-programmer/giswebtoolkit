@@ -10,8 +10,9 @@
             >
                 <v-spacer />
                 <v-list-item-action>
-                    <v-btn plain
-                           color="var(--v-secondary-lighten1)"
+                    <v-btn
+                        plain
+                        color="var(--v-secondary-lighten1)"
                     >
                         <gwtk-icon :name="selectAllMode? 'mdi-playlist-check' : 'mdi-playlist-remove'" />
                     </v-btn>

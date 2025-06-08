@@ -53,7 +53,7 @@
     </v-container>
 </template>
 
-<script lang="ts" src="./GwtkBeekeeperMapObjectWidget.ts"/>
+<script lang="ts" src="./GwtkBeekeeperMapObjectWidget.ts" />
 <style scoped>
     .container-object {
         height: 100%;

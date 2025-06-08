@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_BASE_URL = 'http://localhost:3000/api/sanizones' // Замените на ваш API endpoint
+const API_BASE_URL = 'http://localhost:5000/api/sanitzones' // Замените на ваш API endpoint
 
 export default {
   async getSanizones() {

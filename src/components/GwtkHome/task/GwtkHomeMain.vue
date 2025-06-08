@@ -72,10 +72,11 @@
             :set-state="setState"
             :category="selectedCategory"
         />
-        <gwtk-home-help v-else-if="isShowHelp"
-                        :set-state="setState"
-                        :category="selectedCategory"
-                        @selectCategory="selectCategory"
+        <gwtk-home-help
+            v-else-if="isShowHelp"
+            :set-state="setState"
+            :category="selectedCategory"
+            @selectCategory="selectCategory"
         />
         <gwtk-home-category
             v-else

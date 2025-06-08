@@ -55,7 +55,7 @@
     </gwtk-task-container-item>
 </template>
 
-<script lang="ts" src="./GwtkBeekeeperStaticWidget.ts"/>
+<script lang="ts" src="./GwtkBeekeeperStaticWidget.ts" />
 
 <style scoped>
 
